@@ -1,0 +1,83 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <RootNamespace>Lite_Ceep_Store</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <PackageIcon>logo.png</PackageIcon>
+    <ApplicationIcon>Images\256.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\Jost.ttf" />
+    <None Remove="Images\close_app_cel.png" />
+    <None Remove="Images\close_app_def.png" />
+    <None Remove="Images\max_cel.png" />
+    <None Remove="Images\max_def.png" />
+    <None Remove="Images\min_cel.png" />
+    <None Remove="Images\min_def.png" />
+    <None Remove="Images\triangleScrollBottom_def.png" />
+    <None Remove="Images\triangleScrollTop_def.png" />
+    <None Remove="Jsons\countries.json" />
+    <None Remove="Jsons\user.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\256.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="DevExpressMvvm" Version="22.1.3" />
+    <PackageReference Include="DocX" Version="2.3.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Jost.ttf" />
+    <Resource Include="Images\256.ico" />
+    <Resource Include="Images\close_app_cel.png" />
+    <Resource Include="Images\close_app_def.png" />
+    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\max_cel.png" />
+    <Resource Include="Images\max_def.png" />
+    <Resource Include="Images\min_cel.png" />
+    <Resource Include="Images\min_def.png" />
+    <Resource Include="Images\triangleScrollBottom_def.png" />
+    <Resource Include="Images\triangleScrollTop_def.png" />
+    <Resource Include="Jsons\countries.json" />
+    <Resource Include="Jsons\user.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Images\256.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Images\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

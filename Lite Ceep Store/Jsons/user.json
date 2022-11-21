@@ -1,0 +1,42 @@
+[
+  {
+    "Name": "Terrill",
+    "LastName": "Blick",
+    "Birthday": "05.02.1975",
+    "Country": "Panama",
+    "Username": "Utt",
+    "Password": "$2a$11$HPlj2BYwxvLZlEaolRVA7uDBanXP/xrpPkuJ/yDsec0EGiedWY3Eu"
+  },
+  {
+    "Name": "Аким",
+    "LastName": "Мустафаев",
+    "Birthday": "5.5.2004",
+    "Country": "Russian Federation",
+    "Username": "Akimchi",
+    "Password": "$2a$11$6aP8QvE6NmOuewgW9OR3l.p/n7M883zEAKCWeNy4PesTc3UOw/Mju"
+  },
+  {
+    "Name": "Артем",
+    "LastName": "Десанский",
+    "Birthday": "6.10.2009",
+    "Country": "Russian Federation",
+    "Username": "assaa",
+    "Password": "$2a$11$UsqZZeZ4nmaOEpiMH5Q2xOB4MHgBuBt6BUNCVSRufw5eZ559eGn9G"
+  },
+  {
+    "Name": "qwerty123",
+    "LastName": "qwerty123",
+    "Birthday": "10.26.2010",
+    "Country": "Russian Federation",
+    "Username": "qwerty123",
+    "Password": "$2a$11$gxs4UVDMKamT0Rug0bR07uqFIMUHgTHm1adQd4V5slQFkoAG0iaIu"
+  },
+  {
+    "Name": "qwerty123",
+    "LastName": "qwerty123",
+    "Birthday": "21.11.2010",
+    "Country": "Russian Federation",
+    "Username": "qwerty123",
+    "Password": "$2a$11$A/BbWKOAWUZNfuRtulS4FOJNdON/zSSvexDi0S2XN0DzIR9GBtcWG"
+  }
+]
