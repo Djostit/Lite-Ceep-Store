@@ -49,7 +49,7 @@ namespace Lite_Ceep_Store.ViewModels
             SelectedCountry = Country.SingleOrDefault(c => c.code.Equals(CultureInfo.CurrentCulture.Name.Split('-')[1]));
         }
 
-        public DelegateCommand SignUpCommand => new(async () => 
+        public AsyncCommand SignUpCommand => new(async () => 
         {
             await _userService.AddUser(Name, LastName, new DateOnly(int.Parse(Birthday.Split('.')[2]), 
                                                                     int.Parse(Birthday.Split('.')[0]), 
@@ -82,6 +82,8 @@ namespace Lite_Ceep_Store.ViewModels
                 ErrorMessageUsername = "Обязательно";
             else if (Username.Length < 3)
                 ErrorMessageUsername = "Слишком короткий";
+            //else if(_userService.CheckUsername(Username).Result)
+            //    ErrorMessageUsername = "Уже существует";
             else
                 ErrorMessageUsername = string.Empty;
 
@@ -113,9 +115,10 @@ namespace Lite_Ceep_Store.ViewModels
             else
                 return false;
         });
-        public DelegateCommand SignInCommand => new(() =>
+        public AsyncCommand SignInCommand => new(async() =>
         {
-            _pageService.ChangePage(new SignIn());
+            //_pageService.ChangePage(new SignIn());
+            Debug.WriteLine(await _userService.CheckUsernameAsync(Username));
         });
     }
 }

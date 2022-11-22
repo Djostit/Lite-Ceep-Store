@@ -11,15 +11,19 @@ namespace Lite_Ceep_Store.Service
 {
     public class UserService
     {
-        private const string PATH = @"Jsons\user.json";
-        private static async Task ReadUsers() => Global.Users = JsonConvert.DeserializeObject<List<User>>(await File.ReadAllTextAsync(Path.GetFullPath(PATH).Replace(@"\bin\Debug\net7.0-windows\", @"\")));
-        private static async Task SaveUser() => await File.WriteAllTextAsync(Path.GetFullPath(PATH).Replace(@"\bin\Debug\net7.0-windows\", @"\"), JsonConvert.SerializeObject(Global.Users, Formatting.Indented));
+        public static List<User> Users { get; set; } = new List<User>();
 
-        public async Task<bool> AuthorizeUser(string Username, string Password)
+        private const string PATH = @"Jsons\user.json";
+        //public static async Task ReadUsers() => Users = JsonConvert.DeserializeObject<List<User>>(await File.ReadAllTextAsync(Path.GetFullPath(PATH).Replace(@"\bin\Debug\net7.0-windows\", @"\")));
+        public static async Task ReadUsers() => Users = JsonConvert.DeserializeObject<List<User>>(await File.ReadAllTextAsync("C:\\Users\\Djostit\\Source\\Repos\\Djostit\\Lite-Ceep-Store\\Lite Ceep Store\\Jsons\\user.json"));
+
+        public static async Task SaveUser() => await File.WriteAllTextAsync(Path.GetFullPath(PATH).Replace(@"\bin\Debug\net7.0-windows\", @"\"), JsonConvert.SerializeObject(Users, Formatting.Indented));
+
+        public static async Task<bool> AuthorizeUser(string Username, string Password)
         {
             await ReadUsers();
 
-            var user = Global.Users.SingleOrDefault(u => u.Username.Equals(Username));
+            var user = Users.SingleOrDefault(u => u.Username.Equals(Username));
 
             if (user == null)
                 return false;
@@ -31,7 +35,7 @@ namespace Lite_Ceep_Store.Service
         {
             await ReadUsers();
 
-            Global.Users.Add( new User
+            Users.Add( new User
                 {
                     Name = Name,
                     LastName = LastName,
@@ -42,6 +46,12 @@ namespace Lite_Ceep_Store.Service
                 });
 
             await SaveUser();
+        }
+
+        public async Task<bool> CheckUsernameAsync(string Username)
+        {
+            await ReadUsers();
+            return Users.SingleOrDefault(u => u.Username.Equals(Username)) != null;
         }
     }
 }

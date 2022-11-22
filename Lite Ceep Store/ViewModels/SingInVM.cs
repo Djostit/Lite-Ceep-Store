@@ -24,9 +24,9 @@ namespace Lite_Ceep_Store.ViewModels
             _pageService = pageService;
             _userService = userService;
         }
-        public DelegateCommand SignInCommand => new(() =>
+        public AsyncCommand SignInCommand => new(async() =>
         {
-            Debug.WriteLine(_userService.AuthorizeUser(Login, Password));
+            //Debug.WriteLine(await _userService.AuthorizeUser(Login, Password));        
         });
         public DelegateCommand SignUpCommand => new(() =>
         {

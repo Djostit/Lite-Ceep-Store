@@ -344,7 +344,8 @@
                         FontFamily="\Fonts\#Jost"
                         FontSize="14"
                         Style="{StaticResource ButtonToText}"
-                        Command="{Binding SignInCommand}"
+                        Command="{Binding SignInCommand,
+                                  IsAsync=True}"
                         Cursor="Hand"
                         Margin="0 0 0 25">
                     <Underline>Войти</Underline>

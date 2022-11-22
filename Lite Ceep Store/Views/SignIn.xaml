@@ -102,7 +102,8 @@
                     
                     Content="ВОЙТИ"
                     
-                    Command="{Binding SignInCommand}"
+                    Command="{Binding SignInCommand,
+                              IsAsync=True}"
                     
                     FontSize="14"
                     FontFamily="\Fonts\#Jost"
