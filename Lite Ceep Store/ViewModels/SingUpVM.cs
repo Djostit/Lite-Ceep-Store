@@ -10,7 +10,6 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Lite_Ceep_Store.ViewModels
@@ -27,7 +26,6 @@ namespace Lite_Ceep_Store.ViewModels
 
         public DateTime DateStart { get; set; } = DateTime.Now.AddYears(-100);
         public DateTime DateEnd { get; set; } = DateTime.Now.AddYears(-12);
-        // var user = Global.Users.SingleOrDefault(u => u.Username == Username);
         public Country SelectedCountry { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
@@ -41,22 +39,23 @@ namespace Lite_Ceep_Store.ViewModels
         public string ErrorMessageUsername { get; set; }
         public string ErrorMessagePassword { get; set; }
         public string ErrorMessageRepeatPassword { get; set; }
+        public List<string> usernames { get; set; } = new();
 
         public SingUpVM(PageService pageService, UserService userService)
         {
             _pageService = pageService;
             _userService = userService;
             SelectedCountry = Country.SingleOrDefault(c => c.code.Equals(CultureInfo.CurrentCulture.Name.Split('-')[1]));
-        }
+            usernames = _userService.ReceiveUsernames();
 
+        }
         public AsyncCommand SignUpCommand => new(async () => 
         {
-            await _userService.AddUser(Name, LastName, new DateOnly(int.Parse(Birthday.Split('.')[2]), 
-                                                                    int.Parse(Birthday.Split('.')[0]), 
-                                                                    int.Parse(Birthday.Split('.')[1]))
-                                                                    .ToString(), SelectedCountry.name, Username, Password);
-             _pageService.ChangePage(new SignIn());
-            
+            await _userService.AddUserAsync(Name, LastName, new DateOnly(int.Parse(Birthday.Split('.')[2]),
+                                                                        int.Parse(Birthday.Split('.')[0]),
+                                                                        int.Parse(Birthday.Split('.')[1]))
+                                                                        .ToString(), SelectedCountry.name, Username, Password);
+            _pageService.ChangePage(new SignIn());
         }, bool () =>
         {
             if (string.IsNullOrWhiteSpace(Name))
@@ -82,7 +81,7 @@ namespace Lite_Ceep_Store.ViewModels
                 ErrorMessageUsername = "Обязательно";
             else if (Username.Length < 3)
                 ErrorMessageUsername = "Слишком короткий";
-            //else if(_userService.CheckUsername(Username).Result)
+            //else if (usernames.SingleOrDefault(u => u.Username.Equals(Username)) != null)
             //    ErrorMessageUsername = "Уже существует";
             else
                 ErrorMessageUsername = string.Empty;
@@ -115,10 +114,11 @@ namespace Lite_Ceep_Store.ViewModels
             else
                 return false;
         });
-        public AsyncCommand SignInCommand => new(async() =>
+        public DelegateCommand SignInCommand => new(() =>
         {
             //_pageService.ChangePage(new SignIn());
-            Debug.WriteLine(await _userService.CheckUsernameAsync(Username));
+            //Debug.WriteLine(usernames.Count);
+            Debug.WriteLine(usernames.Count);
         });
     }
 }

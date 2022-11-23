@@ -14,35 +14,45 @@ namespace Lite_Ceep_Store.Service
         public static List<User> Users { get; set; } = new List<User>();
 
         private const string PATH = @"Jsons\user.json";
-        //public static async Task ReadUsers() => Users = JsonConvert.DeserializeObject<List<User>>(await File.ReadAllTextAsync(Path.GetFullPath(PATH).Replace(@"\bin\Debug\net7.0-windows\", @"\")));
-        public static async Task ReadUsers() => Users = JsonConvert.DeserializeObject<List<User>>(await File.ReadAllTextAsync("C:\\Users\\Djostit\\Source\\Repos\\Djostit\\Lite-Ceep-Store\\Lite Ceep Store\\Jsons\\user.json"));
+        private async Task ReadUsers() => Users = JsonConvert.DeserializeObject<List<User>>(await File.ReadAllTextAsync(Path.GetFullPath(PATH)
+            .Replace(@"\bin\Debug\net7.0-windows\", @"\")));
+        private async Task SaveUser() => await File.WriteAllTextAsync(Path.GetFullPath(PATH)
+            .Replace(@"\bin\Debug\net7.0-windows\", @"\"), JsonConvert.SerializeObject(Users, Formatting.Indented));
+        public List<string> ReceiveUsernames()
+        {
+            ReadUsers();
 
-        public static async Task SaveUser() => await File.WriteAllTextAsync(Path.GetFullPath(PATH).Replace(@"\bin\Debug\net7.0-windows\", @"\"), JsonConvert.SerializeObject(Users, Formatting.Indented));
+            List<string> a = new();
 
-        public static async Task<bool> AuthorizeUser(string Username, string Password)
+            foreach (var item in Users)
+            {
+                a.Add(item.Username);
+            }
+            return a;
+        }
+        public async Task<bool> AuthorizeUserAsync(string username, string password)
         {
             await ReadUsers();
 
-            var user = Users.SingleOrDefault(u => u.Username.Equals(Username));
+            var user = Users.SingleOrDefault(u => u.Username.Equals(username));
 
             if (user == null)
                 return false;
 
-            return BCrypt.Net.BCrypt.Verify(Password, user.Password);
+            return BCrypt.Net.BCrypt.Verify(password, user.Password);
         }
-
-        public async Task AddUser(string Name, string LastName, string Birthday, string Country, string Username, string Password)
+        public async Task AddUserAsync(string name, string lastName, string birthday, string country, string username, string password)
         {
             await ReadUsers();
 
             Users.Add( new User
                 {
-                    Name = Name,
-                    LastName = LastName,
-                    Birthday = Birthday,
-                    Country = Country,
-                    Username = Username,
-                    Password = BCrypt.Net.BCrypt.HashPassword(Password)
+                    Name = name,
+                    LastName = lastName,
+                    Birthday = birthday,
+                    Country = country,
+                    Username = username,
+                    Password = BCrypt.Net.BCrypt.HashPassword(password)
                 });
 
             await SaveUser();

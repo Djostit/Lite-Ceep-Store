@@ -26,7 +26,7 @@ namespace Lite_Ceep_Store.ViewModels
         }
         public AsyncCommand SignInCommand => new(async() =>
         {
-            //Debug.WriteLine(await _userService.AuthorizeUser(Login, Password));        
+            Debug.WriteLine(await _userService.AuthorizeUserAsync(Login, Password));        
         });
         public DelegateCommand SignUpCommand => new(() =>
         {
