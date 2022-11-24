@@ -14,10 +14,12 @@ namespace Lite_Ceep_Store
             services.AddTransient<WindowVM>();
             services.AddScoped<SingInVM>();
             services.AddScoped<SingUpVM>();
+            services.AddScoped<MainPageVM>();
 
 
             services.AddSingleton<PageService>();
             services.AddSingleton<UserService>();
+            services.AddSingleton<MessageBus>();
 
             _provider = services.BuildServiceProvider();
 
@@ -29,6 +31,7 @@ namespace Lite_Ceep_Store
         public WindowVM WindowVM => _provider.GetRequiredService<WindowVM>();
         public SingInVM SingInVM => _provider.GetRequiredService<SingInVM>();
         public SingUpVM SingUpVM => _provider.GetRequiredService<SingUpVM>();
+        public MainPageVM MainPageVM => _provider.GetRequiredService<MainPageVM>();
 
     }
 }

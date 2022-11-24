@@ -14,25 +14,20 @@ namespace Lite_Ceep_Store.Service
         public static List<User> Users { get; set; } = new List<User>();
 
         private const string PATH = @"Jsons\user.json";
-        private async Task ReadUsers() => Users = JsonConvert.DeserializeObject<List<User>>(await File.ReadAllTextAsync(Path.GetFullPath(PATH)
+        private async Task ReadUsersAsync() => Users = JsonConvert.DeserializeObject<List<User>>(await File.ReadAllTextAsync(Path.GetFullPath(PATH)
             .Replace(@"\bin\Debug\net7.0-windows\", @"\")));
-        private async Task SaveUser() => await File.WriteAllTextAsync(Path.GetFullPath(PATH)
+        private void ReadUsers() => Users = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(Path.GetFullPath(PATH)
+            .Replace(@"\bin\Debug\net7.0-windows\", @"\")));
+        private async Task SaveUserAsync() => await File.WriteAllTextAsync(Path.GetFullPath(PATH)
             .Replace(@"\bin\Debug\net7.0-windows\", @"\"), JsonConvert.SerializeObject(Users, Formatting.Indented));
-        public List<string> ReceiveUsernames()
+        public List<User> ReceiveUsernames()
         {
             ReadUsers();
-
-            List<string> a = new();
-
-            foreach (var item in Users)
-            {
-                a.Add(item.Username);
-            }
-            return a;
+            return Users;
         }
         public async Task<bool> AuthorizeUserAsync(string username, string password)
         {
-            await ReadUsers();
+            await ReadUsersAsync();
 
             var user = Users.SingleOrDefault(u => u.Username.Equals(username));
 
@@ -43,7 +38,7 @@ namespace Lite_Ceep_Store.Service
         }
         public async Task AddUserAsync(string name, string lastName, string birthday, string country, string username, string password)
         {
-            await ReadUsers();
+            await ReadUsersAsync();
 
             Users.Add( new User
                 {
@@ -55,12 +50,12 @@ namespace Lite_Ceep_Store.Service
                     Password = BCrypt.Net.BCrypt.HashPassword(password)
                 });
 
-            await SaveUser();
+            await SaveUserAsync();
         }
 
         public async Task<bool> CheckUsernameAsync(string Username)
         {
-            await ReadUsers();
+            await ReadUsersAsync();
             return Users.SingleOrDefault(u => u.Username.Equals(Username)) != null;
         }
     }

@@ -39,7 +39,7 @@ namespace Lite_Ceep_Store.ViewModels
         public string ErrorMessageUsername { get; set; }
         public string ErrorMessagePassword { get; set; }
         public string ErrorMessageRepeatPassword { get; set; }
-        public List<string> usernames { get; set; } = new();
+        public List<User> usernames { get; set; } = new();
 
         public SingUpVM(PageService pageService, UserService userService)
         {
@@ -47,7 +47,6 @@ namespace Lite_Ceep_Store.ViewModels
             _userService = userService;
             SelectedCountry = Country.SingleOrDefault(c => c.code.Equals(CultureInfo.CurrentCulture.Name.Split('-')[1]));
             usernames = _userService.ReceiveUsernames();
-
         }
         public AsyncCommand SignUpCommand => new(async () => 
         {
@@ -81,8 +80,8 @@ namespace Lite_Ceep_Store.ViewModels
                 ErrorMessageUsername = "Обязательно";
             else if (Username.Length < 3)
                 ErrorMessageUsername = "Слишком короткий";
-            //else if (usernames.SingleOrDefault(u => u.Username.Equals(Username)) != null)
-            //    ErrorMessageUsername = "Уже существует";
+            else if (usernames.SingleOrDefault(u => u.Username.Equals(Username)) != null)
+                ErrorMessageUsername = "Уже существует";
             else
                 ErrorMessageUsername = string.Empty;
 
@@ -116,9 +115,7 @@ namespace Lite_Ceep_Store.ViewModels
         });
         public DelegateCommand SignInCommand => new(() =>
         {
-            //_pageService.ChangePage(new SignIn());
-            //Debug.WriteLine(usernames.Count);
-            Debug.WriteLine(usernames.Count);
+            _pageService.ChangePage(new SignIn());
         });
     }
 }
