@@ -14,17 +14,13 @@ namespace Lite_Ceep_Store.ViewModels
     {
         private readonly PageService _pageService;
         private readonly MessageBus _messageBus;
-        private string _username;
+        public string HelloUsername { get; set; }
         public MainPageVM(PageService pageService, MessageBus messageBus)
         {
             _pageService = pageService;
             _messageBus = messageBus;
 
-            _messageBus.Receive<TextMessage>(this, async message => _username = message.Text);
+            _messageBus.Receive<TextMessage>(this, async message => HelloUsername = $"Привет, {message.Text}!");
         }
-        public DelegateCommand Send => new(() => 
-        {
-            Debug.WriteLine(_username);
-        });
     }
 }

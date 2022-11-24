@@ -12,6 +12,82 @@
       Title="MainPage">
 
     <Grid>
-        <Button Command="{Binding Send}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Column="0"
+              Margin="5 0 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Margin="0 25 0 15"
+                   Source="\Images\logo.png"
+                   
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   
+                   MaxHeight="70"/>
+
+            <RadioButton Grid.Row="1"
+                         
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Center"
+                         
+                         Style="{StaticResource MaterialDesignChoiceChipPrimaryOutlineRadioButton}"
+                         
+                         Content="МАГАЗИН"
+                         
+                         FontSize="24"
+                         FontFamily="\Fonts\#Jost"
+                    
+                         Foreground="White"
+                         Background="#121212"
+                         BorderBrush="Transparent"/>
+            <RadioButton Grid.Row="2"
+                         
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Center"
+                         
+                         Style="{StaticResource MaterialDesignChoiceChipPrimaryOutlineRadioButton}"
+                         
+                         Content="БИБЛИОТЕКА"
+                         
+                         FontSize="24"
+                         FontFamily="\Fonts\#Jost"
+                    
+                         Foreground="White"
+                         Background="#121212"
+                         BorderBrush="Transparent"/>
+            <RadioButton Grid.Row="3"
+                         
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Center"
+                         
+                         Style="{StaticResource MaterialDesignChoiceChipPrimaryOutlineRadioButton}"
+                         
+                         Content="АКТИВАЦИЯ"
+                         
+                         FontSize="24"
+                         FontFamily="\Fonts\#Jost"
+                    
+                         Foreground="White"
+                         Background="#121212"
+                         BorderBrush="Transparent"/>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        </Grid>
+        
     </Grid>
 </Page>

@@ -6,5 +6,13 @@
     "Country": "Russian Federation",
     "Username": "qwerty123",
     "Password": "$2a$11$A/BbWKOAWUZNfuRtulS4FOJNdON/zSSvexDi0S2XN0DzIR9GBtcWG"
+  },
+  {
+    "Name": "Аким",
+    "LastName": "Мустафаев",
+    "Birthday": "25.11.2004",
+    "Country": "Russian Federation",
+    "Username": "akimchi",
+    "Password": "$2a$11$miMGCebNnNBdIq1iFNNvGOyOviourCkmabNNfqpu0txhNqolyksTy"
   }
 ]

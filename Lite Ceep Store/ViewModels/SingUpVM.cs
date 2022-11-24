@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Threading.Tasks;
 
 namespace Lite_Ceep_Store.ViewModels
@@ -59,17 +60,26 @@ namespace Lite_Ceep_Store.ViewModels
         {
             if (string.IsNullOrWhiteSpace(Name))
                 ErrorMessageName = "Обязательно";
+            else if (Name.Contains(' '))
+                ErrorMessageName = "Неверный формат";
             else
                 ErrorMessageName = string.Empty;
 
             if (string.IsNullOrWhiteSpace(LastName))
                 ErrorMessageLastName = "Обязательно";
+            else if (LastName.Contains(' '))
+                ErrorMessageLastName = "Неверный формат";
             else
                 ErrorMessageLastName = string.Empty;
 
             if (string.IsNullOrWhiteSpace(Birthday))
                 ErrorMessageBirthday = "Обязательно";
-            else if (int.Parse(Birthday.Split('.')[2].Split(' ')[0]) > DateEnd.Year)
+            else if (int.Parse(Birthday.Split('.')[2].Split(' ')[0]) > DateEnd.Year
+                     || int.Parse(Birthday.Split('.')[2].Split(' ')[0]) >= DateEnd.Year
+                     && int.Parse(Birthday.Split('.')[0].Split(' ')[0]) > DateEnd.Month
+                     || int.Parse(Birthday.Split('.')[2].Split(' ')[0]) >= DateEnd.Year
+                     && int.Parse(Birthday.Split('.')[0].Split(' ')[0]) >= DateEnd.Month 
+                     && int.Parse(Birthday.Split('.')[1].Split(' ')[0]) > DateEnd.Day)
                 ErrorMessageBirthday = "Неверный формат";
             else if (int.Parse(Birthday.Split('.')[2].Split(' ')[0]) < DateStart.Year)
                 ErrorMessageBirthday = "Неверный формат";
@@ -80,6 +90,8 @@ namespace Lite_Ceep_Store.ViewModels
                 ErrorMessageUsername = "Обязательно";
             else if (Username.Length < 3)
                 ErrorMessageUsername = "Слишком короткий";
+            else if(Username.Contains(' '))
+                ErrorMessageUsername = "Неверный формат";
             else if (usernames.SingleOrDefault(u => u.Username.Equals(Username)) != null)
                 ErrorMessageUsername = "Уже существует";
             else

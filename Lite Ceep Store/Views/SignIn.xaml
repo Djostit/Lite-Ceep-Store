@@ -31,6 +31,9 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Border BorderThickness="1"
@@ -63,7 +66,7 @@
             <TextBox Grid.Row="2"
                      
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                     Text="{Binding Login,
+                     Text="{Binding Username,
                             Mode=TwoWay,
                             UpdateSourceTrigger=PropertyChanged}"
                      
@@ -77,9 +80,18 @@
                      
                      Foreground="White"
                      BorderBrush="White"
-                     Margin="5 0 5 15"/>
+                     Margin="5 0 5 0"/>
+            <TextBlock Grid.Row="3"
+                       Text="{Binding ErrorMessageUsername,
+                                  Mode=TwoWay,
+                                  UpdateSourceTrigger=PropertyChanged}"
+                       FontFamily="\Fonts\#Jost"
+                       Foreground="#de3341"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="5 0 5 10"/>
 
-            <PasswordBox Grid.Row="3"
+            <PasswordBox Grid.Row="4"
                          
                          Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}"
                          materialDesing:PasswordBoxAssist.Password="{Binding Password,
@@ -96,9 +108,19 @@
                          
                          Foreground="White"
                          BorderBrush="White"
-                         Margin="5 0 5 15"/>
+                         Margin="5 0 5 0"/>
+            <TextBlock Grid.Row="5"
+                       Text="{Binding ErrorMessagePassword,
+                                  Mode=TwoWay,
+                                  UpdateSourceTrigger=PropertyChanged}"
+                       
+                       FontFamily="\Fonts\#Jost"
+                       Foreground="#de3341"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="5 0 5 10"/>
 
-            <Button Grid.Row="4"
+            <Button Grid.Row="6"
                     
                     Content="ВОЙТИ"
                     
@@ -113,9 +135,18 @@
                     BorderBrush="Transparent"
                     
                     Cursor="Hand"
-                    Margin="5 0 5 15"/>
+                    Margin="5 0 5 0"/>
+            <TextBlock Grid.Row="7"
+                       Text="{Binding ErrorMessageButton,
+                                  Mode=TwoWay,
+                                  UpdateSourceTrigger=PropertyChanged}"
+                       FontFamily="\Fonts\#Jost"
+                       Foreground="#de3341"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="5 0 5 0"/>
 
-            <TextBlock Grid.Row="5"
+            <TextBlock Grid.Row="8"
                        
                        Text="У вас нет учетной записи?"
                        
@@ -127,7 +158,7 @@
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
 
-            <Button Grid.Row="6"
+            <Button Grid.Row="9"
                     
                     FontFamily="\Fonts\#Jost"
                     FontSize="14"

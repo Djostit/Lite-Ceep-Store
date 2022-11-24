@@ -17,9 +17,11 @@ namespace Lite_Ceep_Store.ViewModels
         private readonly PageService _pageService;
         private readonly UserService _userService;
         private readonly MessageBus _messageBus;
-        public string Login { get; set; }
+        public string Username { get; set; }
         public string Password { get; set; }
-        public string ErrorMessage { get; set; }
+        public string ErrorMessageUsername { get; set; }
+        public string ErrorMessagePassword { get; set; }
+        public string ErrorMessageButton { get; set; }
 
         public SingInVM(PageService pageService, UserService userService, MessageBus messageBus)
         {
@@ -29,11 +31,41 @@ namespace Lite_Ceep_Store.ViewModels
         }
         public AsyncCommand SignInCommand => new(async() =>
         {
-            if (await _userService.AuthorizeUserAsync(Login, Password) == true)
+            if (await _userService.AuthorizeUserAsync(Username, Password) == true)
             {
-                await _messageBus.SendTo<MainPageVM>(new TextMessage(Login));
+                ErrorMessageButton= string.Empty;
+                await _messageBus.SendTo<MainPageVM>(new TextMessage(Username));
                 _pageService.ChangePage(new MainPage());
             }
+            else
+            {
+                ErrorMessageButton = "Неверное имя пользователя или пароль";
+            }
+        }, bool () => 
+        {
+            if (string.IsNullOrWhiteSpace(Username))
+                ErrorMessageUsername = "Обязательно";
+            else if (Username.Length < 3)
+                ErrorMessageUsername = "Слишком короткий";
+            else
+                ErrorMessageUsername = string.Empty;
+
+            if (string.IsNullOrWhiteSpace(Password))
+                ErrorMessagePassword = "Обязательно";
+            else if (Password.Length < 7)
+                ErrorMessagePassword = "Слишком короткий";
+            else if (Password.Contains(' ')
+                    || !Password.Any(char.IsDigit)
+                    || !Password.Any(char.IsLetter))
+                ErrorMessagePassword = "Неверный формат";
+            else
+                ErrorMessagePassword = string.Empty;
+
+            if (ErrorMessageUsername.Equals(string.Empty)
+                && ErrorMessagePassword.Equals(string.Empty))
+                return true;
+            else
+                return false;
         });
         public DelegateCommand SignUpCommand => new(() =>
         {
