@@ -113,8 +113,10 @@
 
                 <materialDesing:PopupBox Grid.Column="1"
                                          PlacementMode="BottomAndAlignCentres"
-                                         ToolTipService.Placement="Right"
-                                         Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}">
+                                         ToolTipService.Placement="Right">
+                    <materialDesing:PopupBox.ToggleContent>
+                        <materialDesign:PackIcon Kind="DotsHorizontal" />
+                    </materialDesing:PopupBox.ToggleContent>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
