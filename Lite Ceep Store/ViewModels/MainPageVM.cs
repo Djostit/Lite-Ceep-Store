@@ -12,7 +12,7 @@ namespace Lite_Ceep_Store.ViewModels
 {
     public class MainPageVM : BindableBase
     {
-        private readonly PageService _pageService;
+        private readonly PageServiceInside _pageServiceInside;
         private readonly MessageBus _messageBus;
         public string HelloUsername { get; set; }
         public MainPageVM(PageService pageService, MessageBus messageBus)
