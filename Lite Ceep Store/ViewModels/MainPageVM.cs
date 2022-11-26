@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Lite_Ceep_Store.ViewModels
 {
@@ -19,6 +20,8 @@ namespace Lite_Ceep_Store.ViewModels
         {
             _pageService = pageService;
             _messageBus = messageBus;
+
+            //_pageService.OnPageChanged += (page) => PageSource = page;
 
             _messageBus.Receive<TextMessage>(this, async message => HelloUsername = $"Привет, {message.Text}!");
         }
