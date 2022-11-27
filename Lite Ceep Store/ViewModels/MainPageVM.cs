@@ -1,6 +1,7 @@
 ﻿using DevExpress.Mvvm;
 using Lite_Ceep_Store.Messages;
 using Lite_Ceep_Store.Service;
+using Lite_Ceep_Store.Views;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,15 +16,28 @@ namespace Lite_Ceep_Store.ViewModels
     {
         private readonly PageServiceInside _pageServiceInside;
         private readonly MessageBus _messageBus;
-        public string HelloUsername { get; set; }
-        public MainPageVM(PageService pageService, MessageBus messageBus)
+        public Page? PageSource { get; set; } = new StorePage();
+        public string LogoUsername { get; set; }
+        public MainPageVM(PageServiceInside pageServiceInside, MessageBus messageBus)
         {
-            _pageService = pageService;
+            _pageServiceInside = pageServiceInside;
             _messageBus = messageBus;
 
-            //_pageService.OnPageChanged += (page) => PageSource = page;
+            _pageServiceInside.OnPageChanged += (page) => PageSource = page;
 
-            _messageBus.Receive<TextMessage>(this, async message => HelloUsername = $"Привет, {message.Text}!");
+            _messageBus.Receive<TextMessage>(this, async message => LogoUsername = message.Text.ToArray()[0].ToString().ToUpper());
         }
+        public DelegateCommand CommandStore => new(() =>
+        {
+            _pageServiceInside.ChangePage(new StorePage());
+        });
+        public DelegateCommand CommandLibrary => new(() =>
+        {
+            _pageServiceInside.ChangePage(new StoreLibrary());
+        });
+        public DelegateCommand CommandActivation => new(() =>
+        {
+            _pageServiceInside.ChangePage(new ActivationPage());
+        });
     }
 }
