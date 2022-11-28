@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 namespace Lite_Ceep_Store.Assets
 {
-    public class Current_Global
+    public static class Current_Global
     {
-        public List<User> CurrentUser { get; set; } = new List<User>();
+        public static List<User> CurrentUser { get; set; } = new List<User>();
     }
 }

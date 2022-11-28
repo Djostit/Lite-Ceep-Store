@@ -41,13 +41,12 @@ namespace Lite_Ceep_Store.ViewModels
         public string ErrorMessagePassword { get; set; }
         public string ErrorMessageRepeatPassword { get; set; }
         public List<User> usernames { get; set; } = new();
-
         public SingUpVM(PageService pageService, UserService userService)
         {
             _pageService = pageService;
             _userService = userService;
             SelectedCountry = Country.SingleOrDefault(c => c.code.Equals(CultureInfo.CurrentCulture.Name.Split('-')[1]));
-            usernames = _userService.ReceiveUsernames();
+            usernames = _userService.JustCheck();
         }
         public AsyncCommand SignUpCommand => new(async () => 
         {
@@ -92,7 +91,7 @@ namespace Lite_Ceep_Store.ViewModels
                 ErrorMessageUsername = "Слишком короткий";
             else if(Username.Contains(' '))
                 ErrorMessageUsername = "Неверный формат";
-            else if (usernames.SingleOrDefault(u => u.Username.Equals(Username)) != null)
+            else if (usernames.SingleOrDefault(u => u.Username.ToLower().Equals(Username.ToLower())) != null)
                 ErrorMessageUsername = "Уже существует";
             else
                 ErrorMessageUsername = string.Empty;

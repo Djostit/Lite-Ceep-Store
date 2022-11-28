@@ -128,7 +128,8 @@
                         Foreground="White"
                         FontFamily="\Fonts\#Jost">
                         <MenuItem Header="Пополнить баланс"
-                                  FontSize="14"/>
+                                  FontSize="14"
+                                  Command="{Binding CommandReplenishmentBalance}"/>
                     </MenuItem>
                     <Menu.Resources>
                         <SolidColorBrush x:Key="MaterialDesignPaper" Color="#383838"/>

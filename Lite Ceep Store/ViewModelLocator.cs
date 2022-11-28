@@ -18,6 +18,7 @@ namespace Lite_Ceep_Store
             services.AddTransient<StorePageVM>();
             services.AddTransient<LibraryPageVM>();
             services.AddTransient<ActivationPageVM>();
+            services.AddTransient<ReplenishmentBalanceVM>();
 
 
             services.AddSingleton<PageService>();
@@ -39,6 +40,7 @@ namespace Lite_Ceep_Store
         public StorePageVM StorePageVM => _provider.GetRequiredService<StorePageVM>();
         public LibraryPageVM LibraryPageVM => _provider.GetRequiredService<LibraryPageVM>();
         public ActivationPageVM ActivationPageVM => _provider.GetRequiredService<ActivationPageVM>();
+        public ReplenishmentBalanceVM ReplenishmentBalanceVM => _provider.GetRequiredService<ReplenishmentBalanceVM>();
 
     }
 }

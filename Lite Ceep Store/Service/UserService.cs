@@ -16,13 +16,11 @@ namespace Lite_Ceep_Store.Service
         private const string PATH = @"Jsons\user.json";
         private async Task ReadUsersAsync() => Users = JsonConvert.DeserializeObject<List<User>>(await File.ReadAllTextAsync(Path.GetFullPath(PATH)
             .Replace(@"\bin\Debug\net7.0-windows\", @"\")));
-        private void ReadUsers() => Users = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(Path.GetFullPath(PATH)
-            .Replace(@"\bin\Debug\net7.0-windows\", @"\")));
         private async Task SaveUserAsync() => await File.WriteAllTextAsync(Path.GetFullPath(PATH)
             .Replace(@"\bin\Debug\net7.0-windows\", @"\"), JsonConvert.SerializeObject(Users, Formatting.Indented));
-        public List<User> ReceiveUsernames()
+        public List<User> JustCheck()
         {
-            ReadUsers();
+            ReadUsersAsync().GetAwaiter();
             return Users;
         }
         public async Task<bool> AuthorizeUserAsync(string username, string password)

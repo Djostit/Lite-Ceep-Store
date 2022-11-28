@@ -14,5 +14,13 @@
     "Country": "Russian Federation",
     "Username": "akimchi",
     "Password": "$2a$11$miMGCebNnNBdIq1iFNNvGOyOviourCkmabNNfqpu0txhNqolyksTy"
+  },
+  {
+    "Name": "Алексей",
+    "LastName": "Петров",
+    "Birthday": "26.02.2004",
+    "Country": "Russian Federation",
+    "Username": "Anoxx",
+    "Password": "$2a$11$doqBiU2wIQED74O3TbsG6OeyAeoemhOWClLth7zcbyCIPMlBZpPD6"
   }
 ]
