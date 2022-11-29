@@ -34,7 +34,6 @@ namespace Lite_Ceep_Store.ViewModels
             if (await _userService.AuthorizeUserAsync(Username, Password) == true)
             {
                 ErrorMessageButton= string.Empty;
-                await _messageBus.SendTo<MainPageVM>(new TextMessage(Username));
                 _pageService.ChangePage(new MainPage());
             }
             else

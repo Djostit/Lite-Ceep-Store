@@ -50,9 +50,12 @@
                        
                        FontFamily="\Fonts\#Jost"
                        FontSize="26"/>
+            
             <TextBlock Grid.Column="1"
                        Foreground="White"
-                       Text="1 рубль"
+                       Text="{Binding CurrentBalance,
+                              Mode=TwoWay,
+                              UpdateSourceTrigger=PropertyChanged}"
                        
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
@@ -82,7 +85,30 @@
                        
                    FontFamily="\Fonts\#Jost"
                    FontSize="26"/>
-        <TextBox Grid.Row="4"
+        <ComboBox Grid.Row="4"
+                  FontSize="26"
+                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                  materialDesing:HintAssist.Hint="Сумма пополнения"
+                  materialDesing:HintAssist.FontFamily="\Fonts\#Jost"
+                  FontFamily="\Fonts\#Jost"
+                  Foreground="White"
+                  Margin="5 0 5 15">
+            <TextBlock Text="50 ₽" Foreground="White"/>
+            <TextBlock Text="100 ₽" Foreground="White"/>
+            <TextBlock Text="150 ₽" Foreground="White"/>
+            <TextBlock Text="200 ₽" Foreground="White"/>
+            <TextBlock Text="500 ₽" Foreground="White"/>
+            <TextBlock Text="750 ₽" Foreground="White"/>
+            <TextBlock Text="1000 ₽" Foreground="White"/>
+            <ComboBox.Resources>
+                <SolidColorBrush x:Key="MaterialDesignPaper" Color="#383838"/>
+                <Style TargetType="{x:Type ScrollBar}">
+                    <Setter Property="Template" 
+                        Value="{StaticResource VerticalScrollBarDark}"/>
+                </Style>
+            </ComboBox.Resources>
+        </ComboBox>
+        <!--<TextBox Grid.Row="4"
                  Foreground="White"
                  Style="{StaticResource MaterialDesignFilledTextBox}"
                  IsReadOnly="True"
@@ -93,6 +119,6 @@
                  materialDesing:HintAssist.FontFamily="\Fonts\#Jost"
                  
                  FontFamily="\Fonts\#Jost"
-                 FontSize="26"/>
+                 FontSize="26"/>-->
     </Grid>
 </Page>

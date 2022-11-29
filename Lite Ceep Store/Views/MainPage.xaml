@@ -104,7 +104,9 @@
 
                 <TextBlock Grid.Column="0"
                            Foreground="White"
-                           Text="9999₽"
+                           Text="{Binding CurrentBalance,
+                                 Mode=TwoWay,
+                                 UpdateSourceTrigger=PropertyChanged}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontFamily="\Fonts\#Jost"
@@ -129,7 +131,8 @@
                         FontFamily="\Fonts\#Jost">
                         <MenuItem Header="Пополнить баланс"
                                   FontSize="14"
-                                  Command="{Binding CommandReplenishmentBalance}"/>
+                                  Command="{Binding CommandReplenishmentBalance, 
+                                            IsAsync=True}"/>
                     </MenuItem>
                     <Menu.Resources>
                         <SolidColorBrush x:Key="MaterialDesignPaper" Color="#383838"/>

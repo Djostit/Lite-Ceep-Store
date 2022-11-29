@@ -1,5 +1,7 @@
 ﻿using Lite_Ceep_Store.Assets;
+using Lite_Ceep_Store.Messages;
 using Lite_Ceep_Store.Models;
+using Lite_Ceep_Store.ViewModels;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,6 +13,7 @@ namespace Lite_Ceep_Store.Service
 {
     public class UserService
     {
+        private readonly MessageBus _messageBus;
         public static List<User> Users { get; set; } = new List<User>();
 
         private const string PATH = @"Jsons\user.json";
@@ -18,6 +21,10 @@ namespace Lite_Ceep_Store.Service
             .Replace(@"\bin\Debug\net7.0-windows\", @"\")));
         private async Task SaveUserAsync() => await File.WriteAllTextAsync(Path.GetFullPath(PATH)
             .Replace(@"\bin\Debug\net7.0-windows\", @"\"), JsonConvert.SerializeObject(Users, Formatting.Indented));
+        public UserService(MessageBus messageBus)
+        {
+            _messageBus = messageBus;
+        }
         public List<User> JustCheck()
         {
             ReadUsersAsync().GetAwaiter();
@@ -32,6 +39,10 @@ namespace Lite_Ceep_Store.Service
             if (user == null)
                 return false;
 
+            await _messageBus.SendTo<MainPageVM>(new TextMessage($"{user.Username} {user.Balance}"));
+
+            Current_Global.CurrentUser.Add(user);
+
             return BCrypt.Net.BCrypt.Verify(password, user.Password);
         }
         public async Task AddUserAsync(string name, string lastName, string birthday, string country, string username, string password)
@@ -45,7 +56,8 @@ namespace Lite_Ceep_Store.Service
                     Birthday = birthday,
                     Country = country,
                     Username = username,
-                    Password = BCrypt.Net.BCrypt.HashPassword(password)
+                    Password = BCrypt.Net.BCrypt.HashPassword(password),
+                    Balance = 0
                 });
 
             await SaveUserAsync();

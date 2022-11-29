@@ -5,7 +5,8 @@
     "Birthday": "21.11.2010",
     "Country": "Russian Federation",
     "Username": "qwerty123",
-    "Password": "$2a$11$A/BbWKOAWUZNfuRtulS4FOJNdON/zSSvexDi0S2XN0DzIR9GBtcWG"
+    "Password": "$2a$11$A/BbWKOAWUZNfuRtulS4FOJNdON/zSSvexDi0S2XN0DzIR9GBtcWG",
+    "Balance": 0
   },
   {
     "Name": "Аким",
@@ -13,7 +14,8 @@
     "Birthday": "25.11.2004",
     "Country": "Russian Federation",
     "Username": "akimchi",
-    "Password": "$2a$11$miMGCebNnNBdIq1iFNNvGOyOviourCkmabNNfqpu0txhNqolyksTy"
+    "Password": "$2a$11$miMGCebNnNBdIq1iFNNvGOyOviourCkmabNNfqpu0txhNqolyksTy",
+    "Balance": 0
   },
   {
     "Name": "Алексей",
@@ -21,6 +23,16 @@
     "Birthday": "26.02.2004",
     "Country": "Russian Federation",
     "Username": "Anoxx",
-    "Password": "$2a$11$doqBiU2wIQED74O3TbsG6OeyAeoemhOWClLth7zcbyCIPMlBZpPD6"
+    "Password": "$2a$11$doqBiU2wIQED74O3TbsG6OeyAeoemhOWClLth7zcbyCIPMlBZpPD6",
+    "Balance": 0
+  },
+  {
+    "Name": "Артем",
+    "LastName": "Десанский",
+    "Birthday": "18.06.2004",
+    "Country": "Russian Federation",
+    "Username": "aswaaa",
+    "Password": "$2a$11$gBspWFUsiFcWls6aSh9Xp.SkI94Fv/kP8JyEcb6sgdgkN1cjW0hOe",
+    "Balance": 0
   }
 ]

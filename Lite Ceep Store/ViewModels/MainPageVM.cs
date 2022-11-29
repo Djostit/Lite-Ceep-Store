@@ -1,5 +1,7 @@
 ﻿using DevExpress.Mvvm;
+using Lite_Ceep_Store.Assets;
 using Lite_Ceep_Store.Messages;
+using Lite_Ceep_Store.Models;
 using Lite_Ceep_Store.Service;
 using Lite_Ceep_Store.Views;
 using System;
@@ -17,6 +19,7 @@ namespace Lite_Ceep_Store.ViewModels
         private readonly PageServiceInside _pageServiceInside;
         private readonly MessageBus _messageBus;
         private readonly PageService _pageService;
+        public string CurrentBalance { get; set; }
         public Page? PageSource { get; set; } = new StorePage();
         public string LogoUsername { get; set; }
         public MainPageVM(PageServiceInside pageServiceInside, MessageBus messageBus, PageService pageService)
@@ -27,8 +30,9 @@ namespace Lite_Ceep_Store.ViewModels
 
             _pageServiceInside.OnPageChanged += (page) => PageSource = page;
 
-            _messageBus.Receive<TextMessage>(this, async message => LogoUsername = message.Text.ToArray()[0].ToString().ToUpper());
-            
+            _messageBus.Receive<TextMessage>(this, async message => LogoUsername = message.Text.Split(' ')[0].ToString().ToUpper().ToArray()[0].ToString());
+
+            _messageBus.Receive<TextMessage>(this, async message => CurrentBalance = $"{message.Text.Split(' ')[1]}₽");
         }
         public DelegateCommand CommandStore => new(() =>
         {
@@ -42,9 +46,10 @@ namespace Lite_Ceep_Store.ViewModels
         {
             _pageServiceInside.ChangePage(new ActivationPage());
         });
-        public DelegateCommand CommandReplenishmentBalance => new(() =>
+        public AsyncCommand CommandReplenishmentBalance => new(async() =>
         {
             _pageService.ChangePage(new ReplenishmentBalance());
+            await _messageBus.SendTo<ReplenishmentBalanceVM>(new TextMessage(CurrentBalance));
         });
     }
 }

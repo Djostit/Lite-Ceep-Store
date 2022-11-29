@@ -14,6 +14,7 @@ namespace Lite_Ceep_Store
             services.AddTransient<WindowVM>();
             services.AddTransient<SingInVM>();
             services.AddTransient<SingUpVM>();
+
             services.AddScoped<MainPageVM>();
             services.AddTransient<StorePageVM>();
             services.AddTransient<LibraryPageVM>();
