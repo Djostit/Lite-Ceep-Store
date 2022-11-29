@@ -1,4 +1,9 @@
-﻿using System.Windows;
+﻿using Lite_Ceep_Store.Messages;
+using Lite_Ceep_Store.Service;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Windows;
 
 namespace Lite_Ceep_Store
 {
@@ -12,6 +17,11 @@ namespace Lite_Ceep_Store
             ViewModelLocator.Init();
 
             base.OnStartup(e);
+        }
+        protected override async void OnExit(ExitEventArgs e)
+        {
+            await UserService.SaveCurrentUserAsync();
+            base.OnExit(e);
         }
     }
 }

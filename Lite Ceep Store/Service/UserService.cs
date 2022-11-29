@@ -13,19 +13,14 @@ namespace Lite_Ceep_Store.Service
 {
     public class UserService
     {
-        private readonly MessageBus _messageBus;
         public static List<User> Users { get; set; } = new List<User>();
 
         private const string PATH = @"Jsons\user.json";
-        private async Task ReadUsersAsync() => Users = JsonConvert.DeserializeObject<List<User>>(await File.ReadAllTextAsync(Path.GetFullPath(PATH)
+        private static async Task ReadUsersAsync() => Users = JsonConvert.DeserializeObject<List<User>>(await File.ReadAllTextAsync(Path.GetFullPath(PATH)
             .Replace(@"\bin\Debug\net7.0-windows\", @"\")));
-        private async Task SaveUserAsync() => await File.WriteAllTextAsync(Path.GetFullPath(PATH)
+        private static async Task SaveUserAsync() => await File.WriteAllTextAsync(Path.GetFullPath(PATH)
             .Replace(@"\bin\Debug\net7.0-windows\", @"\"), JsonConvert.SerializeObject(Users, Formatting.Indented));
-        public UserService(MessageBus messageBus)
-        {
-            _messageBus = messageBus;
-        }
-        public List<User> JustCheck()
+        public List<User> GetUsernames()
         {
             ReadUsersAsync().GetAwaiter();
             return Users;
@@ -39,9 +34,7 @@ namespace Lite_Ceep_Store.Service
             if (user == null)
                 return false;
 
-            await _messageBus.SendTo<MainPageVM>(new TextMessage($"{user.Username} {user.Balance}"));
-
-            Current_Global.CurrentUser.Add(user);
+            Current_Global.CurrentUser = user;
 
             return BCrypt.Net.BCrypt.Verify(password, user.Password);
         }
@@ -67,6 +60,15 @@ namespace Lite_Ceep_Store.Service
         {
             await ReadUsersAsync();
             return Users.SingleOrDefault(u => u.Username.Equals(Username)) != null;
+        }
+        public static async Task SaveCurrentUserAsync()
+        {
+            if (Current_Global.CurrentUser.Username.Equals(null))
+                return;
+
+            int index = Users.FindIndex(u => u.Equals(Current_Global.CurrentUser));
+            Users[index] = Current_Global.CurrentUser;
+            await SaveUserAsync();
         }
     }
 }

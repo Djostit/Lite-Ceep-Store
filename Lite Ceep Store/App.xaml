@@ -11,9 +11,10 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Grey.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
+            
             <local:ViewModelLocator x:Key="ViewModelLocator" />
             <converter:DateConverter x:Key="DateConverter" />
+            
             <ImageBrush x:Key="close_app_cel"
                 ImageSource="/Images/close_app_cel.png"
                 Stretch="None" />
@@ -316,6 +317,43 @@
                     </Track>
                 </Grid>
             </ControlTemplate>
+
+            <ImageBrush x:Key="return_back_cel"
+                ImageSource="/Images/close_app_cel.png"
+                Stretch="None" />
+
+            <ImageBrush x:Key="return_back_def"
+                ImageSource="/Images/close_app_def.png"
+                Stretch="None" />
+
+            <Style x:Key="ReturnBackStyle" 
+                   TargetType="{x:Type Button}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="border"
+                            BorderThickness="0"
+                            Background="{StaticResource return_back_def}">
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver"
+                                 Value="True">
+                                    <Setter Property="Background"
+                                    TargetName="border"
+                                    Value="{StaticResource return_back_cel}" />
+                                </Trigger>
+                                <Trigger Property="IsPressed"
+                                 Value="True">
+                                    <Setter Property="Background"
+                                    TargetName="border"
+                                    Value="{StaticResource return_back_def}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

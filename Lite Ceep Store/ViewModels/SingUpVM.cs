@@ -46,7 +46,7 @@ namespace Lite_Ceep_Store.ViewModels
             _pageService = pageService;
             _userService = userService;
             SelectedCountry = Country.SingleOrDefault(c => c.code.Equals(CultureInfo.CurrentCulture.Name.Split('-')[1]));
-            usernames = _userService.JustCheck();
+            usernames = _userService.GetUsernames();
         }
         public AsyncCommand SignUpCommand => new(async () => 
         {

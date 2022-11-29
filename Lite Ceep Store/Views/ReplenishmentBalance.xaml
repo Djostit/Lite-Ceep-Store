@@ -12,20 +12,6 @@
       Title="ReplenishmentBalance">
 
     <Grid Margin="25 0 25 25">
-        <!--<Border BorderThickness="1"
-                    Grid.RowSpan="10"
-                    CornerRadius="20"
-                    Background="#383838"/>
-        <TextBlock Grid.Row="1"
-                   Foreground="White"
-                   Text="В разработке пополнения баланса^^."
-                   
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                       
-                   FontFamily="\Fonts\#Jost"
-                   
-                   FontSize="25"/>-->
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -34,14 +20,28 @@
             <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Border BorderThickness="1"
+                    Grid.RowSpan="10"
+                    CornerRadius="20"
+                    Background="#383838"/>
+
+        <Grid Grid.Row="0"
+              Margin="10 10 10 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-
-            <TextBlock Grid.Column="0"
+            <Button Height="20"
+                    Width="20"
+                    
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    
+                    Style="{StaticResource ReturnBackStyle}"
+                    Command="{Binding ReturnBackCommand}"
+                    Margin="0 0 5 0"/>
+            <TextBlock Grid.Column="1"
                        Foreground="White"
                        Text="Ваш текущий баланс /"
                        
@@ -51,7 +51,7 @@
                        FontFamily="\Fonts\#Jost"
                        FontSize="26"/>
             
-            <TextBlock Grid.Column="1"
+            <TextBlock Grid.Column="2"
                        Foreground="White"
                        Text="{Binding CurrentBalance,
                               Mode=TwoWay,
@@ -65,18 +65,22 @@
                        Margin="5 0 0 0"/>
         </Grid>
         <CheckBox Grid.Row="1"
-                  Margin="0 15 0 0"
+                  Margin="10 15 10 0"
                   Foreground="White"
                   FontFamily="\Fonts\#Jost"
                   FontSize="22"
                   Content="Я прочитал(а) и знаю что покупаю, согласен(на) с условием использования."
-
+                    
+                  IsChecked="{Binding isSelected, 
+                              UpdateSourceTrigger=PropertyChanged}"
+                  
                   VerticalAlignment="Center"
                   HorizontalAlignment="Left"
                       
                   Style="{StaticResource MaterialDesignUserForegroundCheckBox}" 
                   Cursor="Hand"/>
         <TextBlock Grid.Row="2"
+                   Margin="10 20 10 0"
                    Foreground="White"
                    Text="Способ оплаты:"
                        
@@ -85,40 +89,197 @@
                        
                    FontFamily="\Fonts\#Jost"
                    FontSize="26"/>
-        <ComboBox Grid.Row="4"
-                  FontSize="26"
-                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                  materialDesing:HintAssist.Hint="Сумма пополнения"
-                  materialDesing:HintAssist.FontFamily="\Fonts\#Jost"
-                  FontFamily="\Fonts\#Jost"
-                  Foreground="White"
-                  Margin="5 0 5 15">
-            <TextBlock Text="50 ₽" Foreground="White"/>
-            <TextBlock Text="100 ₽" Foreground="White"/>
-            <TextBlock Text="150 ₽" Foreground="White"/>
-            <TextBlock Text="200 ₽" Foreground="White"/>
-            <TextBlock Text="500 ₽" Foreground="White"/>
-            <TextBlock Text="750 ₽" Foreground="White"/>
-            <TextBlock Text="1000 ₽" Foreground="White"/>
-            <ComboBox.Resources>
-                <SolidColorBrush x:Key="MaterialDesignPaper" Color="#383838"/>
-                <Style TargetType="{x:Type ScrollBar}">
-                    <Setter Property="Template" 
+        <!--<ListView Grid.Row="3"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  HorizontalAlignment="Left">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock Text="123"
+                                   Grid.Row="0"
+                                   Foreground="White"/>
+                        <Button Content="123"
+                                Grid.Row="1"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+        <ListView Grid.Row="3"
+                  Margin="10 20 10 0">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <StackPanel>
+                <Image Source="\Images\VisaMastercard.png"/>
+                <TextBlock Foreground="White"
+                           Text="VISA/Mastercard"
+                       
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       
+                       FontFamily="\Fonts\#Jost"
+                       FontSize="14"/>
+            </StackPanel>
+            <StackPanel>
+                <Image Source="\Images\QIWI.png"/>
+                <TextBlock Foreground="White"
+                           Text="QIWI"
+                       
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       
+                       FontFamily="\Fonts\#Jost"
+                       FontSize="14"/>
+            </StackPanel>
+            <StackPanel>
+                <Image Source="\Images\WEBMONEY.png"/>
+                <TextBlock Foreground="White"
+                           Text="Webmoney (WMR)"
+                       
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       
+                       FontFamily="\Fonts\#Jost"
+                       FontSize="14"/>
+            </StackPanel>
+            <StackPanel>
+                <Image Source="\Images\WEBMONEY.png"/>
+                <TextBlock Foreground="White"
+                           Text="Webmoney (WMP)"
+                       
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       
+                       FontFamily="\Fonts\#Jost"
+                       FontSize="14"/>
+            </StackPanel>
+            <StackPanel>
+                <Image Source="\Images\BITCOIN.png"/>
+                <TextBlock Foreground="White"
+                           Text="Bitcoin"
+                       
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       
+                       FontFamily="\Fonts\#Jost"
+                       FontSize="14"/>
+            </StackPanel>
+            <StackPanel>
+                <Image Source="\Images\ROBOKASSA.png"
+                       MinHeight="70"/>
+                <TextBlock Foreground="White"
+                           Text="Robokassa"
+                       
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       
+                       FontFamily="\Fonts\#Jost"
+                       FontSize="14"/>
+            </StackPanel>
+            <StackPanel>
+                <Image Source="\Images\PAYPAL.png"
+                       MinHeight="70"/>
+                <TextBlock Foreground="White"
+                           Text="PayPal"
+                       
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       
+                       FontFamily="\Fonts\#Jost"
+                       FontSize="14"/>
+            </StackPanel>
+        </ListView>
+        <Grid Grid.Row="4"
+              Margin="10 20 10 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox Grid.Column="0"
+                      FontSize="22"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      ItemsSource="{Binding ArrayAmmount}"
+                      SelectedItem="{Binding SelectedAmmount,
+                                     UpdateSourceTrigger=PropertyChanged}"
+                      
+                      Style="{StaticResource MaterialDesignComboBox}"
+                      materialDesing:HintAssist.Hint="Сумма пополнения"
+                      materialDesing:HintAssist.FontFamily="\Fonts\#Jost"
+                      FontFamily="\Fonts\#Jost"
+                      Foreground="White"
+                      BorderBrush="#121212">
+                <ComboBox.Resources>
+                    <SolidColorBrush x:Key="MaterialDesignPaper" Color="#383838"/>
+                    <Style TargetType="{x:Type ScrollBar}">
+                        <Setter Property="Template" 
                         Value="{StaticResource VerticalScrollBarDark}"/>
-                </Style>
-            </ComboBox.Resources>
-        </ComboBox>
-        <!--<TextBox Grid.Row="4"
-                 Foreground="White"
-                 Style="{StaticResource MaterialDesignFilledTextBox}"
-                 IsReadOnly="True"
-                 
-                 HorizontalAlignment="Left"
-                 VerticalAlignment="Center"
-                 materialDesing:HintAssist.Hint="Сумма пополнения"
-                 materialDesing:HintAssist.FontFamily="\Fonts\#Jost"
-                 
-                 FontFamily="\Fonts\#Jost"
-                 FontSize="26"/>-->
+                    </Style>
+                </ComboBox.Resources>
+            </ComboBox>
+            <Button Grid.Column="1"
+                    Content="Пополнить баланс"
+                    BorderBrush="Transparent"
+                    Foreground="White"
+                    Background="#121212"
+                    
+                    Command="{Binding AddMoneyCommand,IsAsync=True}"
+                    
+                    FontSize="18"
+                    FontFamily="\Fonts\#Jost"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="5 0 0 0"/>
+        </Grid>
+
+        <materialDesing:DrawerHost HorizontalAlignment="Center"
+                                   VerticalAlignment="Bottom"
+                                   BorderThickness="2"
+                                   OpenMode="Standard"
+                                   BottomDrawerCornerRadius="20 20 0 0"
+                                   Grid.Row="5"
+                                   BottomDrawerBackground="#121212"
+                                   Margin="0 0 0 -2"
+                                   IsBottomDrawerOpen="{Binding isOpen}">
+            <materialDesing:DrawerHost.BottomDrawerContent>
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontFamily="\Fonts\#Jost"
+                           Text="Успешно!"
+                           Foreground="White"
+                           FontSize="20"
+                           Margin="5"/>
+            </materialDesing:DrawerHost.BottomDrawerContent>
+        </materialDesing:DrawerHost>
+        <!--<materialDesign:DrawerHost HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch"
+                                   Grid.ColumnSpan="3"
+                                   Grid.RowSpan="3"
+                                   OpenMode="Standard"
+                                   BorderBrush="{DynamicResource MaterialDesignDivider}"
+                                   BottomDrawerBackground="{DynamicResource SecondaryHueLightBrush}">
+            <materialDesign:DrawerHost.BottomDrawerContent>
+                <TextBlock x:Name="TextDrawer"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontFamily="Font/#Comfortaa"
+                           FontWeight="Regular"
+                           FontSize="20"
+                           Margin="5"/>
+            </materialDesign:DrawerHost.BottomDrawerContent>
+        </materialDesign:DrawerHost>-->
     </Grid>
 </Page>

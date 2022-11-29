@@ -12,14 +12,20 @@
 
   <ItemGroup>
     <None Remove="Fonts\Jost.ttf" />
+    <None Remove="Images\BITCOIN.png" />
     <None Remove="Images\close_app_cel.png" />
     <None Remove="Images\close_app_def.png" />
     <None Remove="Images\max_cel.png" />
     <None Remove="Images\max_def.png" />
     <None Remove="Images\min_cel.png" />
     <None Remove="Images\min_def.png" />
+    <None Remove="Images\PAYPAL.png" />
+    <None Remove="Images\QIWI.png" />
+    <None Remove="Images\ROBOKASSA.png" />
     <None Remove="Images\triangleScrollBottom_def.png" />
     <None Remove="Images\triangleScrollTop_def.png" />
+    <None Remove="Images\VisaMastercard.png" />
+    <None Remove="Images\WEBMONEY.png" />
     <None Remove="Jsons\countries.json" />
     <None Remove="Jsons\user.json" />
   </ItemGroup>
@@ -41,6 +47,7 @@
   <ItemGroup>
     <Resource Include="Fonts\Jost.ttf" />
     <Resource Include="Images\256.ico" />
+    <Resource Include="Images\BITCOIN.png" />
     <Resource Include="Images\close_app_cel.png" />
     <Resource Include="Images\close_app_def.png" />
     <Resource Include="Images\logo.png" />
@@ -48,8 +55,13 @@
     <Resource Include="Images\max_def.png" />
     <Resource Include="Images\min_cel.png" />
     <Resource Include="Images\min_def.png" />
+    <Resource Include="Images\PAYPAL.png" />
+    <Resource Include="Images\QIWI.png" />
+    <Resource Include="Images\ROBOKASSA.png" />
     <Resource Include="Images\triangleScrollBottom_def.png" />
     <Resource Include="Images\triangleScrollTop_def.png" />
+    <Resource Include="Images\VisaMastercard.png" />
+    <Resource Include="Images\WEBMONEY.png" />
     <Resource Include="Jsons\countries.json" />
     <Resource Include="Jsons\user.json" />
   </ItemGroup>

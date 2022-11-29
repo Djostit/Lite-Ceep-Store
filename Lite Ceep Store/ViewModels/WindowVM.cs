@@ -27,6 +27,9 @@ namespace Lite_Ceep_Store.ViewModels
         {
             Application.Current.MainWindow.WindowState = Application.Current.MainWindow.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
         });
-        public DelegateCommand CloseAppCommand => new(Application.Current.Shutdown);
+        public DelegateCommand CloseAppCommand => new(() =>
+        {
+            Application.Current.Shutdown();
+        });
     }
 }
