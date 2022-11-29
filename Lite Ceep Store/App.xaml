@@ -14,13 +14,9 @@
             
             <local:ViewModelLocator x:Key="ViewModelLocator" />
             <converter:DateConverter x:Key="DateConverter" />
-            
-            <ImageBrush x:Key="close_app_cel"
-                ImageSource="/Images/close_app_cel.png"
-                Stretch="None" />
 
             <ImageBrush x:Key="close_app_def"
-                ImageSource="/Images/close_app_def.png"
+                ImageSource="\Images\close_app_def.png"
                 Stretch="None" />
 
             <Style x:Key="CloseAppStyle" 
@@ -35,9 +31,8 @@
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver"
                                  Value="True">
-                                    <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="{StaticResource close_app_cel}" />
+                                    <Setter Property="Opacity"
+                                    Value="0.7" />
                                 </Trigger>
                                 <Trigger Property="IsPressed"
                                  Value="True">
@@ -51,12 +46,8 @@
                 </Setter>
             </Style>
 
-            <ImageBrush x:Key="max_cel"
-                ImageSource="/Images/max_cel.png"
-                Stretch="None" />
-
             <ImageBrush x:Key="max_def"
-                ImageSource="/Images/max_def.png"
+                ImageSource="\Images\max_def.png"
                 Stretch="None" />
 
             <Style x:Key="MaxAppStyle" 
@@ -71,9 +62,8 @@
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver"
                                  Value="True">
-                                    <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="{StaticResource max_cel}" />
+                                    <Setter Property="Opacity"
+                                    Value="0.7" />
                                 </Trigger>
                                 <Trigger Property="IsPressed"
                                  Value="True">
@@ -87,12 +77,8 @@
                 </Setter>
             </Style>
 
-            <ImageBrush x:Key="min_cel"
-                ImageSource="/Images/min_cel.png"
-                Stretch="None" />
-
             <ImageBrush x:Key="min_def"
-                ImageSource="/Images/min_def.png"
+                ImageSource="\Images\min_def.png"
                 Stretch="None" />
 
             <Style x:Key="MinAppStyle" 
@@ -107,9 +93,8 @@
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver"
                                  Value="True">
-                                    <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="{StaticResource min_cel}" />
+                                    <Setter Property="Opacity"
+                                    Value="0.7" />
                                 </Trigger>
                                 <Trigger Property="IsPressed"
                                  Value="True">
@@ -318,12 +303,8 @@
                 </Grid>
             </ControlTemplate>
 
-            <ImageBrush x:Key="return_back_cel"
-                ImageSource="/Images/close_app_cel.png"
-                Stretch="None" />
-
             <ImageBrush x:Key="return_back_def"
-                ImageSource="/Images/close_app_def.png"
+                ImageSource="\Images\return_back_def.png"
                 Stretch="None" />
 
             <Style x:Key="ReturnBackStyle" 
@@ -337,10 +318,9 @@
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver"
-                                 Value="True">
-                                    <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="{StaticResource return_back_cel}" />
+                                         Value="True">
+                                    <Setter Property="Opacity"
+                                    Value="0.7" />
                                 </Trigger>
                                 <Trigger Property="IsPressed"
                                  Value="True">
@@ -353,7 +333,7 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

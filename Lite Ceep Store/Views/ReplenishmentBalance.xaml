@@ -10,29 +10,40 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ReplenishmentBalance">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-    <Grid Margin="25 0 25 25">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Border BorderThickness="1"
+        <Grid Grid.Column="1"
+              Margin="0 0 0 25"
+              VerticalAlignment="Center">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border BorderThickness="1"
                     Grid.RowSpan="10"
                     CornerRadius="20"
+                    Margin="-25 0 -25 -40"
                     Background="#383838"/>
-
-        <Grid Grid.Row="0"
+            <Grid Grid.Row="0"
               Margin="10 10 10 0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-            </Grid.ColumnDefinitions>
-            <Button Height="20"
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Button Height="20"
                     Width="20"
                     
                     HorizontalAlignment="Center"
@@ -41,17 +52,17 @@
                     Style="{StaticResource ReturnBackStyle}"
                     Command="{Binding ReturnBackCommand}"
                     Margin="0 0 5 0"/>
-            <TextBlock Grid.Column="1"
+                <TextBlock Grid.Column="1"
                        Foreground="White"
-                       Text="Ваш текущий баланс /"
+                       Text="Ваш баланс /"
                        
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        
                        FontFamily="\Fonts\#Jost"
                        FontSize="26"/>
-            
-            <TextBlock Grid.Column="2"
+
+                <TextBlock Grid.Column="2"
                        Foreground="White"
                        Text="{Binding CurrentBalance,
                               Mode=TwoWay,
@@ -63,13 +74,12 @@
                        FontFamily="\Fonts\#Jost"
                        FontSize="26"
                        Margin="5 0 0 0"/>
-        </Grid>
-        <CheckBox Grid.Row="1"
-                  Margin="10 15 10 0"
+            </Grid>
+            <CheckBox Grid.Row="1"
+                  Margin="10 10 10 0"
                   Foreground="White"
                   FontFamily="\Fonts\#Jost"
-                  FontSize="22"
-                  Content="Я прочитал(а) и знаю что покупаю, согласен(на) с условием использования."
+                  FontSize="14"
                     
                   IsChecked="{Binding isSelected, 
                               UpdateSourceTrigger=PropertyChanged}"
@@ -78,9 +88,12 @@
                   HorizontalAlignment="Left"
                       
                   Style="{StaticResource MaterialDesignUserForegroundCheckBox}" 
-                  Cursor="Hand"/>
-        <TextBlock Grid.Row="2"
-                   Margin="10 20 10 0"
+                  Cursor="Hand">
+                <TextBlock Text="Я прочитал(а) и знаю что покупаю, согласен(на) с условием использования."
+                           TextWrapping="Wrap"/>
+            </CheckBox>
+            <TextBlock Grid.Row="2"
+                   Margin="10 10 10 0"
                    Foreground="White"
                    Text="Способ оплаты:"
                        
@@ -89,41 +102,16 @@
                        
                    FontFamily="\Fonts\#Jost"
                    FontSize="26"/>
-        <!--<ListView Grid.Row="3"
-                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                  HorizontalAlignment="Left">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        
-                        <TextBlock Text="123"
-                                   Grid.Row="0"
-                                   Foreground="White"/>
-                        <Button Content="123"
-                                Grid.Row="1"/>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>-->
-        <ListView Grid.Row="3"
-                  Margin="10 20 10 0">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            <StackPanel>
-                <Image Source="\Images\VisaMastercard.png"/>
-                <TextBlock Foreground="White"
+            <ListView Grid.Row="3"
+                  Margin="10 0 10 0">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <StackPanel>
+                    <Image Source="\Images\VisaMastercard.png"/>
+                    <TextBlock Foreground="White"
                            Text="VISA/Mastercard"
                        
                        HorizontalAlignment="Center"
@@ -131,10 +119,10 @@
                        
                        FontFamily="\Fonts\#Jost"
                        FontSize="14"/>
-            </StackPanel>
-            <StackPanel>
-                <Image Source="\Images\QIWI.png"/>
-                <TextBlock Foreground="White"
+                </StackPanel>
+                <StackPanel>
+                    <Image Source="\Images\QIWI.png"/>
+                    <TextBlock Foreground="White"
                            Text="QIWI"
                        
                        HorizontalAlignment="Center"
@@ -142,10 +130,10 @@
                        
                        FontFamily="\Fonts\#Jost"
                        FontSize="14"/>
-            </StackPanel>
-            <StackPanel>
-                <Image Source="\Images\WEBMONEY.png"/>
-                <TextBlock Foreground="White"
+                </StackPanel>
+                <StackPanel>
+                    <Image Source="\Images\WEBMONEY.png"/>
+                    <TextBlock Foreground="White"
                            Text="Webmoney (WMR)"
                        
                        HorizontalAlignment="Center"
@@ -153,10 +141,10 @@
                        
                        FontFamily="\Fonts\#Jost"
                        FontSize="14"/>
-            </StackPanel>
-            <StackPanel>
-                <Image Source="\Images\WEBMONEY.png"/>
-                <TextBlock Foreground="White"
+                </StackPanel>
+                <StackPanel>
+                    <Image Source="\Images\WEBMONEY.png"/>
+                    <TextBlock Foreground="White"
                            Text="Webmoney (WMP)"
                        
                        HorizontalAlignment="Center"
@@ -164,10 +152,10 @@
                        
                        FontFamily="\Fonts\#Jost"
                        FontSize="14"/>
-            </StackPanel>
-            <StackPanel>
-                <Image Source="\Images\BITCOIN.png"/>
-                <TextBlock Foreground="White"
+                </StackPanel>
+                <StackPanel>
+                    <Image Source="\Images\BITCOIN.png"/>
+                    <TextBlock Foreground="White"
                            Text="Bitcoin"
                        
                        HorizontalAlignment="Center"
@@ -175,11 +163,11 @@
                        
                        FontFamily="\Fonts\#Jost"
                        FontSize="14"/>
-            </StackPanel>
-            <StackPanel>
-                <Image Source="\Images\ROBOKASSA.png"
+                </StackPanel>
+                <StackPanel>
+                    <Image Source="\Images\ROBOKASSA.png"
                        MinHeight="70"/>
-                <TextBlock Foreground="White"
+                    <TextBlock Foreground="White"
                            Text="Robokassa"
                        
                        HorizontalAlignment="Center"
@@ -187,11 +175,11 @@
                        
                        FontFamily="\Fonts\#Jost"
                        FontSize="14"/>
-            </StackPanel>
-            <StackPanel>
-                <Image Source="\Images\PAYPAL.png"
+                </StackPanel>
+                <StackPanel>
+                    <Image Source="\Images\PAYPAL.png"
                        MinHeight="70"/>
-                <TextBlock Foreground="White"
+                    <TextBlock Foreground="White"
                            Text="PayPal"
                        
                        HorizontalAlignment="Center"
@@ -199,18 +187,12 @@
                        
                        FontFamily="\Fonts\#Jost"
                        FontSize="14"/>
-            </StackPanel>
-        </ListView>
-        <Grid Grid.Row="4"
-              Margin="10 20 10 0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <ComboBox Grid.Column="0"
+                </StackPanel>
+            </ListView>
+            <ComboBox Grid.Row="4"
+                      Margin="10 10 10 0"
                       FontSize="22"
-                      HorizontalAlignment="Left"
+                      HorizontalAlignment="Stretch"
                       VerticalAlignment="Center"
                       ItemsSource="{Binding ArrayAmmount}"
                       SelectedItem="{Binding SelectedAmmount,
@@ -230,7 +212,7 @@
                     </Style>
                 </ComboBox.Resources>
             </ComboBox>
-            <Button Grid.Column="1"
+            <Button Grid.Row="5"
                     Content="Пополнить баланс"
                     BorderBrush="Transparent"
                     Foreground="White"
@@ -240,46 +222,30 @@
                     
                     FontSize="18"
                     FontFamily="\Fonts\#Jost"
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="Stretch"
                     VerticalAlignment="Center"
-                    Margin="5 0 0 0"/>
-        </Grid>
+                    Margin="10 5 10 10"/>
 
-        <materialDesing:DrawerHost HorizontalAlignment="Center"
+            <materialDesing:DrawerHost HorizontalAlignment="Center"
                                    VerticalAlignment="Bottom"
                                    BorderThickness="2"
                                    OpenMode="Standard"
                                    BottomDrawerCornerRadius="20 20 0 0"
-                                   Grid.Row="5"
+                                   Grid.Row="6"
                                    BottomDrawerBackground="#121212"
-                                   Margin="0 0 0 -2"
+                                   Margin="0 0 0 -42"
                                    IsBottomDrawerOpen="{Binding isOpen}">
-            <materialDesing:DrawerHost.BottomDrawerContent>
-                <TextBlock HorizontalAlignment="Center"
+                <materialDesing:DrawerHost.BottomDrawerContent>
+                    <TextBlock HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontFamily="\Fonts\#Jost"
                            Text="Успешно!"
                            Foreground="White"
                            FontSize="20"
                            Margin="5"/>
-            </materialDesing:DrawerHost.BottomDrawerContent>
-        </materialDesing:DrawerHost>
-        <!--<materialDesign:DrawerHost HorizontalAlignment="Stretch"
-                                   VerticalAlignment="Stretch"
-                                   Grid.ColumnSpan="3"
-                                   Grid.RowSpan="3"
-                                   OpenMode="Standard"
-                                   BorderBrush="{DynamicResource MaterialDesignDivider}"
-                                   BottomDrawerBackground="{DynamicResource SecondaryHueLightBrush}">
-            <materialDesign:DrawerHost.BottomDrawerContent>
-                <TextBlock x:Name="TextDrawer"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           FontFamily="Font/#Comfortaa"
-                           FontWeight="Regular"
-                           FontSize="20"
-                           Margin="5"/>
-            </materialDesign:DrawerHost.BottomDrawerContent>
-        </materialDesign:DrawerHost>-->
+                </materialDesing:DrawerHost.BottomDrawerContent>
+            </materialDesing:DrawerHost>
+        </Grid>
     </Grid>
+    
 </Page>

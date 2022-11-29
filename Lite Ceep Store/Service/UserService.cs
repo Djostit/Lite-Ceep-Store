@@ -43,15 +43,15 @@ namespace Lite_Ceep_Store.Service
             await ReadUsersAsync();
 
             Users.Add( new User
-                {
-                    Name = name,
-                    LastName = lastName,
-                    Birthday = birthday,
-                    Country = country,
-                    Username = username,
-                    Password = BCrypt.Net.BCrypt.HashPassword(password),
-                    Balance = 0
-                });
+                    {
+                        Name = name,
+                        LastName = lastName,
+                        Birthday = birthday,
+                        Country = country,
+                        Username = username,
+                        Password = BCrypt.Net.BCrypt.HashPassword(password),
+                        Balance = 0
+                    });
 
             await SaveUserAsync();
         }

@@ -1,16 +1,9 @@
 ﻿using DevExpress.Mvvm;
 using Lite_Ceep_Store.Assets;
-using Lite_Ceep_Store.Messages;
 using Lite_Ceep_Store.Service;
 using Lite_Ceep_Store.Views;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Security.Permissions;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace Lite_Ceep_Store.ViewModels
 {
