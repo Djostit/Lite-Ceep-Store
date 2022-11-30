@@ -55,6 +55,7 @@
 
                 <Image Margin="0 25 0 15"
                        Source="\Images\logo.png"
+                       RenderOptions.BitmapScalingMode="HighQuality"
                        MinHeight="70"
                        MaxHeight="70"
                        Grid.Row="0"

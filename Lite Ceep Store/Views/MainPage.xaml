@@ -133,6 +133,10 @@
                                   FontSize="14"
                                   Command="{Binding CommandReplenishmentBalance, 
                                             IsAsync=True}"/>
+                        <MenuItem Header="Настройки"
+                                  FontSize="14"
+                                  Command="{Binding CommandSetting}"/>
+                        
                     </MenuItem>
                     <Menu.Resources>
                         <SolidColorBrush x:Key="MaterialDesignPaper" Color="#383838"/>

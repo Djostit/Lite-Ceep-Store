@@ -39,5 +39,9 @@ namespace Lite_Ceep_Store.ViewModels
         {
             _pageService.ChangePage(new ReplenishmentBalance());
         });
+        public DelegateCommand CommandSetting => new(() =>
+        {
+            _pageService.ChangePage(new SettingPage());
+        });
     }
 }

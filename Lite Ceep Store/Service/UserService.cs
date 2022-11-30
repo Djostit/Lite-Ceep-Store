@@ -59,11 +59,11 @@ namespace Lite_Ceep_Store.Service
         public async Task<bool> CheckUsernameAsync(string Username)
         {
             await ReadUsersAsync();
-            return Users.SingleOrDefault(u => u.Username.Equals(Username)) != null;
+            return Users.SingleOrDefault(u => u.Username.Equals(Username)) is not null;
         }
         public static async Task SaveCurrentUserAsync()
         {
-            if (Current_Global.CurrentUser.Username.Equals(null))
+            if (Current_Global.CurrentUser.Username is null)
                 return;
 
             int index = Users.FindIndex(u => u.Equals(Current_Global.CurrentUser));

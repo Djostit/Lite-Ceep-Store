@@ -41,9 +41,9 @@
                     CornerRadius="20"
                     Margin="-25 0 -25 -40"
                     Background="#383838"/>
-
             <Image Margin="0 25 0 15"
                    Source="\Images\logo.png"
+                   RenderOptions.BitmapScalingMode="HighQuality"
                    
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"

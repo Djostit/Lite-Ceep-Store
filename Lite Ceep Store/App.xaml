@@ -247,6 +247,94 @@
                 </Grid>
             </ControlTemplate>
 
+            <Style x:Key="ScrollBarHorizontalThumbStyleDark" TargetType="{x:Type Thumb}">
+                <Setter Property="IsTabStop" Value="False"/>
+                <Setter Property="Focusable" Value="False"/>
+                <Setter Property="Margin" Value="1,0,1,0" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Thumb}">
+                            <Grid x:Name="Grid">
+                                <Border CornerRadius="4"
+                                        Width="8"
+                                        Margin="8 0 -2 0"
+                                        Background="#121212"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--<ControlTemplate x:Key="HorizontalScrollBarDark" TargetType="{x:Type ScrollBar}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="18"/>
+                        <ColumnDefinition Width="0.00001*"/>
+                        <ColumnDefinition MaxWidth="18"/>
+                    </Grid.ColumnDefinitions>
+                    <Track Name="PART_Track" 
+                           Grid.Column="1"
+                           IsDirectionReversed="True">
+                        <Track.DecreaseRepeatButton>
+                            <RepeatButton Command="ScrollBar.LineLeftCommand" 
+                                          Style="{StaticResource ScrollBarPageButtonStyleDark}">
+                            </RepeatButton>
+                        </Track.DecreaseRepeatButton>
+                        <Track.Thumb>
+                            <Thumb Style="{StaticResource ScrollBarHorizontalThumbStyleDark}"
+                                   Margin="0 1 0 1">
+                            </Thumb>
+                        </Track.Thumb>
+                        <Track.IncreaseRepeatButton>
+                            <RepeatButton Command="ScrollBar.LineRightCommand" 
+                                          Style="{StaticResource ScrollBarPageButtonStyleDark}">
+                            </RepeatButton>
+                        </Track.IncreaseRepeatButton>
+                    </Track>
+                </Grid>
+            </ControlTemplate>-->
+            <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="OverridesDefaultStyle" Value="true"/>
+                <Setter Property="IsTabStop" Value="false"/>
+                <Setter Property="Focusable" Value="false"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Thumb}">
+                            <Border CornerRadius="4" 
+                                    Background="#121212" 
+                                    BorderThickness="0"  
+                                    Width="auto"
+                                    Height="4"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <ControlTemplate x:Key="HorizontalScrollBar" TargetType="{x:Type ScrollBar}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="18"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition MaxWidth="18"/>
+                    </Grid.ColumnDefinitions>
+                    <Track Name="PART_Track" 
+                           Grid.Column="1" 
+                           IsDirectionReversed="False">
+                        <Track.DecreaseRepeatButton>
+                            <RepeatButton Style="{StaticResource ScrollBarPageButtonStyleDark}" 
+                                          Command="ScrollBar.PageLeftCommand" />
+                        </Track.DecreaseRepeatButton>
+                        <Track.Thumb>
+                            <Thumb Style="{StaticResource ScrollBarThumb}"/>
+                        </Track.Thumb>
+                        <Track.IncreaseRepeatButton>
+                            <RepeatButton Style="{StaticResource ScrollBarPageButtonStyleDark}" 
+                                          Command="ScrollBar.PageRightCommand" />
+                        </Track.IncreaseRepeatButton>
+                    </Track>
+                </Grid>
+            </ControlTemplate>
+
             <Style TargetType="{x:Type ScrollBar}">
                 <Setter Property="Template" Value="{StaticResource VerticalScrollBarDark}"/>
             </Style>

@@ -103,7 +103,20 @@
                    FontFamily="\Fonts\#Jost"
                    FontSize="26"/>
             <ListView Grid.Row="3"
-                  Margin="10 0 10 0">
+                       Margin="10 0 10 0"
+                      SelectedItem="{Binding SelectedItem, 
+                                    UpdateSourceTrigger=PropertyChanged}">
+                <ListView.Resources>
+                    <Style TargetType="{x:Type ScrollBar}">
+                        <Setter Property="SnapsToDevicePixels" Value="True"/>
+                        <Setter Property="OverridesDefaultStyle" Value="true"/>
+                        <Style.Triggers>
+                            <Trigger Property="Orientation" Value="Horizontal">
+                                <Setter Property="Template" Value="{StaticResource HorizontalScrollBar}" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.Resources>
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal"/>
