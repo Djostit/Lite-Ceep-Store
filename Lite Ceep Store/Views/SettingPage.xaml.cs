@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Lite_Ceep_Store.Views
 {
@@ -23,6 +24,22 @@ namespace Lite_Ceep_Store.Views
         public SettingPage()
         {
             InitializeComponent();
+        }
+
+        private void NumericOnly(object sender, TextCompositionEventArgs e)
+        {
+            if ((e.Text) == null || !e.Text.All(char.IsDigit))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void NoAllowedSpace(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

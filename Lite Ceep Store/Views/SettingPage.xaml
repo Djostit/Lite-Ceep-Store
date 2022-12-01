@@ -10,15 +10,22 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SettingPage">
+    <ScrollViewer>
+        <ScrollViewer.Resources>
+            <Style TargetType="{x:Type ScrollBar}">
+                <Setter Property="Template" 
+                        Value="{StaticResource VerticalScrollBarLight}"/>
+            </Style>
+        </ScrollViewer.Resources>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1"
-              Margin="0 0 0 25"
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1"
+              Margin="0 0 0 65"
               VerticalAlignment="Center">
 
                 <Grid.RowDefinitions>
@@ -36,24 +43,24 @@
                     CornerRadius="20"
                     Margin="-25 0 -25 -40"
                     Background="#383838"/>
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                <Button Height="20"
-                        Width="20"
+                    <Button Height="20"
+                            Width="20"
                     
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
                     
-                        Style="{StaticResource ReturnBackStyle}"
-                        Command="{Binding ReturnBackCommand}"
-                        Margin="0 0 5 0"/>
+                            Style="{StaticResource ReturnBackStyle}"
+                            Command="{Binding ReturnBackCommand}"
+                            Margin="0 0 5 0"/>
 
-                <TextBlock Grid.Column="1"
+                    <TextBlock Grid.Column="1"
                        Foreground="White"
                        Text="Настройки"
                        
@@ -62,8 +69,106 @@
                        
                        FontFamily="\Fonts\#Jost"
                        FontSize="26"/>
+                </Grid>
+                <TabControl Grid.Row="1"
+                        FontFamily="\Fonts\#Jost"
+                        Foreground="White"
+                        materialDesing:ColorZoneAssist.Mode="Custom"
+                        materialDesing:ColorZoneAssist.Foreground="White">
+                    <TabItem Header="Пользователь">
+                        <TextBlock Margin="8"
+                               Text="Пусто."
+                               FontFamily="\Fonts\#Jost"/>
+                    </TabItem>
+                    <TabItem Header="Игра">
+                        <Grid Margin="0 10 0 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0"
+                               Source="{Binding Source, 
+                                        UpdateSourceTrigger=PropertyChanged}"/>
+                            <Button Grid.Row="1"
+                                Margin="0 10 0 0"
+                                Content="Выбрать изображение"
+                                Foreground="White"
+                                Background="#121212"
+                                BorderBrush="Transparent"
+                                Command="{Binding ChoiceSoure}"
+                                
+                                FontFamily="\Fonts\#Jost"/>
+
+                            <TextBox Grid.Row="2"
+                                     Margin="0 10 0 0"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     Text="{Binding Title, 
+                                            Mode=TwoWay, 
+                                            UpdateSourceTrigger=PropertyChanged}"
+                         
+                                     materialDesing:TextFieldAssist.CharacterCounterVisibility="Hidden"
+                                     materialDesing:HintAssist.Background="#383838"
+                                     materialDesing:HintAssist.Hint="Название игры"
+                                     materialDesing:HintAssist.FontFamily="\Fonts\#Jost"
+                     
+                                     FontFamily="\Fonts\#Jost"
+                                     Foreground="White">
+                            </TextBox>
+                            <TextBox Grid.Row="3"
+                                 Margin="0 10 0 0"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Text="{Binding Description, 
+                                            Mode=TwoWay, 
+                                            UpdateSourceTrigger=PropertyChanged}"
+                                 TextWrapping="Wrap"
+                         
+                                 materialDesing:TextFieldAssist.CharacterCounterVisibility="Hidden"
+                                 materialDesing:HintAssist.Background="#383838"
+                                 materialDesing:HintAssist.Hint="Описание игры"
+                                 materialDesing:HintAssist.FontFamily="\Fonts\#Jost"
+                     
+                                 FontFamily="\Fonts\#Jost"
+                                 Foreground="White">
+                            </TextBox>
+                            <TextBox Grid.Row="4"
+                                 Margin="0 10 0 0"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Text="{Binding Price, 
+                                        Mode=TwoWay, 
+                                        UpdateSourceTrigger=PropertyChanged}"
+                                 PreviewTextInput="NumericOnly"
+                                 PreviewKeyDown="NoAllowedSpace"
+                                 
+                                 MaxLength="4"
+                         
+                                 materialDesing:TextFieldAssist.CharacterCounterVisibility="Hidden"
+                                 materialDesing:HintAssist.Background="#383838"
+                                 materialDesing:HintAssist.Hint="Стоимость игры"
+                                 materialDesing:HintAssist.FontFamily="\Fonts\#Jost"
+                                 materialDesing:TextFieldAssist.PrefixText="₽"
+                     
+                                 FontFamily="\Fonts\#Jost"
+                                 Foreground="White">
+                            </TextBox>
+                            <Button Grid.Row="5"
+                                    Margin="0 10 0 0"
+                                    Content="СОХРАНИТЬ"
+                                    Foreground="White"
+                                    Background="#121212"
+                                    BorderBrush="Transparent"
+                                    
+                                    Command="{Binding SaveCommand,
+                                              IsAsync=True}"
+                                
+                                    FontFamily="\Fonts\#Jost"/>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
             </Grid>
-            
         </Grid>
-    </Grid>
+    </ScrollViewer>
 </Page>

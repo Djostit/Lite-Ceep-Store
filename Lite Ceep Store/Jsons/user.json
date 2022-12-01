@@ -6,7 +6,7 @@
     "Country": "Russian Federation",
     "Username": "qwerty123",
     "Password": "$2a$11$A/BbWKOAWUZNfuRtulS4FOJNdON/zSSvexDi0S2XN0DzIR9GBtcWG",
-    "Balance": 28150
+    "Balance": 28700
   },
   {
     "Name": "Аким",
@@ -33,6 +33,6 @@
     "Country": "Russian Federation",
     "Username": "aswaaa",
     "Password": "$2a$11$gBspWFUsiFcWls6aSh9Xp.SkI94Fv/kP8JyEcb6sgdgkN1cjW0hOe",
-    "Balance": 750
+    "Balance": 1150
   }
 ]

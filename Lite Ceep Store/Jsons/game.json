@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "Title": "Half-Life: Alyx",
+    "Image": "lGsetepOZuZ.OxuOuxpCD0QHZDs7Qi.jpg",
+    "Description": "﻿Half-Life: Alyx — это возвращение Valve во вселенную Half-Life в виртуальной реальности. Это история невозможной борьбы с жестокой расой пришельцев, известной как Альянс. События происходят между Half-Life и Half-Life 2.",
+    "Price": "1900 ₽",
+    "DisplayedImage": "C:\\Users\\Djostit\\Source\\Repos\\Djostit\\Lite-Ceep-Store\\Lite Ceep Store\\Assets\\graph\\lGsetepOZuZ.OxuOuxpCD0QHZDs7Qi.jpg"
+  },
+  {
+    "Id": 2,
+    "Title": "SURV1V3",
+    "Image": "gVaj84gA1bBKJWh.eTrcU8MsTxns8y.jpg",
+    "Description": "Then forget what you have played so far, SURV1V3 is a unique realistic zombie survival fps game expressly designed for VR that will let you truly test your survival skills. Play the thrilling story in single mode or coop with your friends (up to 4 players) and survive the apocalypse!",
+    "Price": "465 ₽",
+    "DisplayedImage": "C:\\Users\\Djostit\\Source\\Repos\\Djostit\\Lite-Ceep-Store\\Lite Ceep Store\\Assets\\graph\\gVaj84gA1bBKJWh.eTrcU8MsTxns8y.jpg"
+  },
+  {
+    "Id": 3,
+    "Title": "Time Lock VR 1",
+    "Image": "4.njf64wpYjGToOOTnXEngjwbgiUgP.jpg",
+    "Description": "Временные агенты могут замедлять время для объектов, совершать временные возвраты или даже переносить объекты сквозь временные линии!",
+    "Price": "777 ₽",
+    "DisplayedImage": "C:\\Users\\Djostit\\Source\\Repos\\Djostit\\Lite-Ceep-Store\\Lite Ceep Store\\Assets\\graph\\4.njf64wpYjGToOOTnXEngjwbgiUgP.jpg"
+  }
+]

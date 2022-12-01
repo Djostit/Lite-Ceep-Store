@@ -26,5 +26,66 @@
                    FontFamily="\Fonts\#Jost"
                    
                    FontSize="25"/>
+        <ListView Grid.Row="2"
+                  SelectedIndex="{Binding SelectedIndex, 
+                                  UpdateSourceTrigger=PropertyChanged}"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ItemsSource="{Binding ItemSource}"
+                  HorizontalAlignment="Center">
+
+            <ListView.Resources>
+                <SolidColorBrush x:Key="MaterialDesignPaper" Color="#383838"/>
+                <Style TargetType="{x:Type ScrollBar}">
+                    <Setter Property="Template"
+                                    Value="{StaticResource VerticalScrollBarDark}"/>
+                </Style>
+            </ListView.Resources>
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <materialDesing:Card Background="#121212"
+                                         materialDesing:ElevationAssist.Elevation="Dp6">
+                        <Grid Margin="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0"
+                               MaxWidth="292"
+                               MaxHeight="136"
+                               Source="{Binding DisplayedImage}"/>
+                            <TextBlock Grid.Row="1" 
+                                   Foreground="White"
+                                   Text="{Binding Title}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontFamily="\Fonts\#Jost"
+                                   FontSize="14"
+                                   Margin="0 5 0 0"/>
+                            <TextBlock Grid.Row="2" 
+                                   Foreground="White"
+                                   Text="{Binding Price}"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   FontFamily="\Fonts\#Jost"
+                                   FontSize="14"
+                                   Margin="0 5 0 0"/>
+                            <Button DataContext="{Binding StorePageVM,
+                                    Source={StaticResource ViewModelLocator}}"
+                                    Grid.Row="4"
+                                    Command="{Binding BuyGame}"/>
+                        </Grid>
+                    </materialDesing:Card>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

@@ -34,7 +34,7 @@ namespace Lite_Ceep_Store.Service
             if (user == null)
                 return false;
 
-            Current_Global.CurrentUser = user;
+            Global.CurrentUser = user;
 
             return BCrypt.Net.BCrypt.Verify(password, user.Password);
         }
@@ -63,11 +63,11 @@ namespace Lite_Ceep_Store.Service
         }
         public static async Task SaveCurrentUserAsync()
         {
-            if (Current_Global.CurrentUser.Username is null)
+            if (Global.CurrentUser.Username is null)
                 return;
 
-            int index = Users.FindIndex(u => u.Equals(Current_Global.CurrentUser));
-            Users[index] = Current_Global.CurrentUser;
+            int index = Users.FindIndex(u => u.Equals(Global.CurrentUser));
+            Users[index] = Global.CurrentUser;
             await SaveUserAsync();
         }
     }

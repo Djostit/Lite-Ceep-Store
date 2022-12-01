@@ -26,6 +26,7 @@ namespace Lite_Ceep_Store
             services.AddSingleton<PageService>();
             services.AddSingleton<PageServiceInside>();
             services.AddSingleton<UserService>();
+            services.AddSingleton<GameService>();
             services.AddSingleton<MessageBus>();
 
             _provider = services.BuildServiceProvider();

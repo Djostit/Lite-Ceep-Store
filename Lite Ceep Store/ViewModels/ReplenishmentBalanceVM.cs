@@ -10,7 +10,7 @@ namespace Lite_Ceep_Store.ViewModels
     public class ReplenishmentBalanceVM : BindableBase
     {
         private readonly PageService _pageService;
-        public string CurrentBalance { get; set; } = Current_Global.CurrentUser.Balance.ToString() + "₽";
+        public string CurrentBalance { get; set; } = Global.CurrentUser.Balance.ToString() + "₽";
         public string SelectedItem { get; set; }
         public bool isSelected { get; set; }
         public List<string> ArrayAmmount { get; set; } = new List<string>() { "50 ₽", "100 ₽", "150 ₽", "200 ₽", "500 ₽", "750 ₽", "1000 ₽", "5000 ₽" };
@@ -23,8 +23,8 @@ namespace Lite_Ceep_Store.ViewModels
         }
         public AsyncCommand AddMoneyCommand => new(async () => 
         {
-            Current_Global.CurrentUser.Balance += int.Parse(SelectedAmmount.Split(' ')[0].ToString());
-            CurrentBalance = Current_Global.CurrentUser.Balance.ToString() + "₽";
+            Global.CurrentUser.Balance += int.Parse(SelectedAmmount.Split(' ')[0].ToString());
+            CurrentBalance = Global.CurrentUser.Balance.ToString() + "₽";
             isOpen = true;
             await Task.Delay(1500);
             isOpen = false;
