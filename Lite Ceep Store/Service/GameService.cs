@@ -18,19 +18,7 @@ namespace Lite_Ceep_Store.Service
             .Replace(@"\bin\Debug\net7.0-windows\", @"\")));
         private static async Task SaveGameAsync() => await File.WriteAllTextAsync(Path.GetFullPath(PATH)
             .Replace(@"\bin\Debug\net7.0-windows\", @"\"), JsonConvert.SerializeObject(Global.Games, Formatting.Indented));
-        //public async Task<bool> AuthorizeUserAsync(string username, string password)
-        //{
-        //    await ReadUsersAsync();
 
-        //    var user = Users.SingleOrDefault(u => u.Username.Equals(username));
-
-        //    if (user == null)
-        //        return false;
-
-        //    Current_Global.CurrentUser = user;
-
-        //    return BCrypt.Net.BCrypt.Verify(password, user.Password);
-        //}
         public async Task AddGameAsync(string title, string imageSource, string description, int price)
         {
             await ReadGamesAsync();
