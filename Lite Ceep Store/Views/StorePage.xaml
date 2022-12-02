@@ -15,7 +15,7 @@
         <Border BorderThickness="1"
                 CornerRadius="20"
                 Background="#383838"/>
-        <ListView SelectedItem="{Binding SelectedIndex,
+        <ListView SelectedItem="{Binding Game,
                                   Mode=TwoWay,
                                   UpdateSourceTrigger=PropertyChanged}"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"

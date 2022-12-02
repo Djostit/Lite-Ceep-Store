@@ -1,7 +1,9 @@
 ﻿using DevExpress.Mvvm;
 using Lite_Ceep_Store.Assets;
+using Lite_Ceep_Store.Messages;
 using Lite_Ceep_Store.Models;
 using Lite_Ceep_Store.Service;
+using Lite_Ceep_Store.Views;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,23 +15,24 @@ namespace Lite_Ceep_Store.ViewModels
 {
     public class StorePageVM : BindableBase
     {
-        private readonly CheckService _checkService;
+        private readonly MessageBus _messageBus;
+        private readonly PageService _pageService;
         public List<Game> ItemSource { get; set; } = Global.Games;
-        public Game SelectedIndex
+        public Game Game
         {
             get { return GetValue<Game>(); }
-            set { SetValue(value, changedCallback: OnFirstNameChanged); }
+            set { SetValue(value, changedCallback: OnGameChanged); }
         }
-        private async void OnFirstNameChanged()
+        private async void OnGameChanged()
         {
-            //Debug.WriteLine(SelectedIndex.Title);
-            _checkService.GetCheck(SelectedIndex.Title, SelectedIndex.Description, SelectedIndex.Price, "NL9YA-PB69J-3E2AA-ICNWC-WNF66");
-            //await _keyService.CreateKey(SelectedIndex.Id);
+            await _messageBus.SendTo<BuyingGameVM>(new GameMessage(Game));
+            //_pageService.ChangePage(new BuyingGame());
 
         }
-        public StorePageVM(CheckService checkService)
+        public StorePageVM(MessageBus messageBus, PageService pageService)
         {
-            _checkService = checkService;
+            _messageBus = messageBus;
+            _pageService = pageService;
         }
     }
 }
