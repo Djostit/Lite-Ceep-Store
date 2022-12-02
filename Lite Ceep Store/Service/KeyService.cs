@@ -3,6 +3,7 @@ using Lite_Ceep_Store.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,9 +25,16 @@ namespace Lite_Ceep_Store.Service
             .Replace(@"\bin\Debug\net7.0-windows\", @"\")));
         private static async Task SaveKeyAsync() => await File.WriteAllTextAsync(Path.GetFullPath(PATH)
             .Replace(@"\bin\Debug\net7.0-windows\", @"\"), JsonConvert.SerializeObject(keys, Formatting.Indented));
-        public string CreateKey()
+        public async Task CreateKey(int ID)
         {
-            return $"{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}";
+            await ReadKeysAsync();
+            keys.Add(new Key 
+            {
+                ID = ID,
+                KEY = $"{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}",
+                Status = Key.Status_key.Not_activated
+            });
+            await SaveKeyAsync();
         }
 
         private static string CreateKeyPart(Random rnd)

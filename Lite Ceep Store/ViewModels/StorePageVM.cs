@@ -20,10 +20,12 @@ namespace Lite_Ceep_Store.ViewModels
             get { return GetValue<Game>(); }
             set { SetValue(value, changedCallback: OnFirstNameChanged); }
         }
-        private void OnFirstNameChanged()
+        private async void OnFirstNameChanged()
         {
             //Debug.WriteLine(SelectedIndex.Title);
-            _checkService.GetCheck(SelectedIndex.Title, SelectedIndex.Description, SelectedIndex.Price, "test");
+            _checkService.GetCheck(SelectedIndex.Title, SelectedIndex.Description, SelectedIndex.Price, "NL9YA-PB69J-3E2AA-ICNWC-WNF66");
+            //await _keyService.CreateKey(SelectedIndex.Id);
+
         }
         public StorePageVM(CheckService checkService)
         {

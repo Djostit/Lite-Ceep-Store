@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Lite_Ceep_Store.Views"
+      xmlns:materialDesing="http://materialdesigninxaml.net/winfx/xaml/themes"
       DataContext="{Binding ActivationPageVM,
                     Source={StaticResource ViewModelLocator}}"
       mc:Ignorable="d" 
@@ -11,19 +12,106 @@
       Title="ActivationPage">
 
     <Grid>
-        <Border BorderThickness="1"
-                    Grid.RowSpan="10"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0"
+              Panel.ZIndex="1"
+              Margin="15 15 100 15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border BorderThickness="1"
+                    Grid.Row="0"
                     CornerRadius="20"
-                    Background="#383838"/>
-        <TextBlock Grid.Row="1"
-                   Foreground="White"
-                   Text="В разработке активации."
+                    VerticalAlignment="Stretch"
+                    Background="#121212"/>
+            
+            <Image Source="\Images\logo.png"
+                   Margin="0 140 0 140"
+                   Grid.Row="0"
                    
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                       
-                   FontFamily="\Fonts\#Jost"
                    
-                   FontSize="25"/>
+                   MaxHeight="70"/>
+
+            <TextBlock Grid.Row="1"
+                       Foreground="#808080"
+                       Text="Контент будет навсегда привязан к вашей учетной записи Ceep Store, убедитесь, что входите в правильную учетную запись."
+                       TextWrapping="Wrap"
+                       
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       
+                       FontFamily="\Fonts\#Jost"
+                       FontSize="14"/>
+        </Grid>
+        <Grid Grid.Column="1"
+              VerticalAlignment="Center"
+              Panel.ZIndex="1"
+              Margin="0 0 50 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       Foreground="White"
+                       Text="Активировать продукт"
+                       
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       
+                       FontFamily="\Fonts\#Jost"
+                       FontSize="25"/>
+            <TextBlock Grid.Row="1"
+                       Foreground="#808080"
+                       Text="Введите код продукта, указанный в чеке или в другой код продукта Ceep Store."
+                       
+                       TextWrapping="Wrap"
+                       
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       
+                       FontFamily="\Fonts\#Jost"
+                       FontSize="16"
+                       Margin="0 15 0 0"/>
+
+            <TextBox Grid.Row="2"
+                     Style="{StaticResource MaterialDesignTextBox}"
+                     materialDesing:TextFieldAssist.CharacterCounterVisibility="Hidden"
+                     
+                     materialDesing:HintAssist.Hint="0000-0000-0000-0000-0000"
+                     materialDesing:HintAssist.FontFamily="\Fonts\#Jost"
+                     
+                     MaxLength="29"
+                     
+                     FontFamily="\Fonts\#Jost"
+                     FontSize="22"
+                     Foreground="White"
+                     Margin="0 15 0 0">
+            </TextBox>
+
+            <Button Grid.Row="3"
+                    Content="АКТИВИРОВАТЬ"
+                    Background="#121212"
+                    BorderBrush="Transparent"
+                    Foreground="White"
+                    
+                    FontFamily="\Fonts\#Jost"
+                    FontSize="16"
+                    Margin="0 15 0 0"/>
+
+        </Grid>
+        <Border BorderThickness="1"
+                CornerRadius="20"
+                Grid.ColumnSpan="2"
+                Background="#383838"/>
     </Grid>
 </Page>
