@@ -25,16 +25,20 @@ namespace Lite_Ceep_Store.Service
             .Replace(@"\bin\Debug\net7.0-windows\", @"\")));
         private static async Task SaveKeyAsync() => await File.WriteAllTextAsync(Path.GetFullPath(PATH)
             .Replace(@"\bin\Debug\net7.0-windows\", @"\"), JsonConvert.SerializeObject(keys, Formatting.Indented));
-        public async Task CreateKey(int ID)
+        public async Task<string> CreateKey(int ID)
         {
             await ReadKeysAsync();
+
+            string key = $"{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}";
             keys.Add(new Key 
             {
                 ID = ID,
-                KEY = $"{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}",
+                KEY = key,
                 Status = Key.Status_key.Not_activated
             });
             await SaveKeyAsync();
+
+            return key;
         }
 
         private static string CreateKeyPart(Random rnd)

@@ -17,7 +17,7 @@ namespace Lite_Ceep_Store.ViewModels
         private readonly PageService _pageService;
         private readonly GameService _gameService;
 
-        public string Source { get; set; }
+        public string Source { get; set; } = Path.GetFullPath($@"Assets\graph\AWbHE6aev0xvC9aeVAllAedg3g5ykf.jpg").Replace(@"\bin\Debug\net7.0-windows\", @"\");
         public string Title { get; set; }
         public string Description { get; set; }
         public int Price { get; set; } 

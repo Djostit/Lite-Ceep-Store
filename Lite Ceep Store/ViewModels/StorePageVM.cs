@@ -26,7 +26,7 @@ namespace Lite_Ceep_Store.ViewModels
         private async void OnGameChanged()
         {
             await _messageBus.SendTo<BuyingGameVM>(new GameMessage(Game));
-            //_pageService.ChangePage(new BuyingGame());
+            _pageService.ChangePage(new BuyingGame());
 
         }
         public StorePageVM(MessageBus messageBus, PageService pageService)
