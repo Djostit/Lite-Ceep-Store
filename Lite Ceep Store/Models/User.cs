@@ -1,4 +1,7 @@
-﻿namespace Lite_Ceep_Store.Models
+﻿using System.Collections.Generic;
+using System.Windows.Documents;
+
+namespace Lite_Ceep_Store.Models
 {
     public class User
     {
@@ -9,5 +12,6 @@
         public string? Username { get; set; }
         public string? Password { get; set; }
         public int? Balance { get; set; }
+        public List<UserGames> Games { get; set; } = new();
     }
 }

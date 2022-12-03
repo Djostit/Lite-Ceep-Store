@@ -6,7 +6,21 @@
     "Country": "Russian Federation",
     "Username": "qwerty123",
     "Password": "$2a$11$A/BbWKOAWUZNfuRtulS4FOJNdON/zSSvexDi0S2XN0DzIR9GBtcWG",
-    "Balance": 28700
+    "Balance": 130,
+    "Games": [
+      {
+        "Id": 4
+      },
+      {
+        "Id": 3
+      },
+      {
+        "Id": 5
+      },
+      {
+        "Id": 2
+      }
+    ]
   },
   {
     "Name": "Аким",
@@ -15,7 +29,8 @@
     "Country": "Russian Federation",
     "Username": "akimchi",
     "Password": "$2a$11$miMGCebNnNBdIq1iFNNvGOyOviourCkmabNNfqpu0txhNqolyksTy",
-    "Balance": 0
+    "Balance": 0,
+    "Games": []
   },
   {
     "Name": "Алексей",
@@ -24,7 +39,8 @@
     "Country": "Russian Federation",
     "Username": "Anoxx",
     "Password": "$2a$11$doqBiU2wIQED74O3TbsG6OeyAeoemhOWClLth7zcbyCIPMlBZpPD6",
-    "Balance": 0
+    "Balance": 0,
+    "Games": []
   },
   {
     "Name": "Артем",
@@ -33,6 +49,21 @@
     "Country": "Russian Federation",
     "Username": "aswaaa",
     "Password": "$2a$11$gBspWFUsiFcWls6aSh9Xp.SkI94Fv/kP8JyEcb6sgdgkN1cjW0hOe",
-    "Balance": 1150
+    "Balance": 1150,
+    "Games": []
+  },
+  {
+    "Name": "Роман",
+    "LastName": "Красильников",
+    "Birthday": "27.03.2005",
+    "Country": "Russian Federation",
+    "Username": "Roman202",
+    "Password": "$2a$11$q9GlZtJ8DUzPEGW0rjCZsu2Dy3dtKEBmnb0uZAf3S2Ld5xSd.Mi1S",
+    "Balance": 4051,
+    "Games": [
+      {
+        "Id": 17
+      }
+    ]
   }
 ]

@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Lite_Ceep_Store.Views"
+      xmlns:materialDesing="http://materialdesigninxaml.net/winfx/xaml/themes"
       DataContext="{Binding LibraryPageVM,
                     Source={StaticResource ViewModelLocator}}"
       mc:Ignorable="d" 
@@ -12,18 +13,46 @@
 
     <Grid>
         <Border BorderThickness="1"
-                    Grid.RowSpan="10"
-                    CornerRadius="20"
-                    Background="#383838"/>
-        <TextBlock Grid.Row="1"
-                   Foreground="White"
-                   Text="В разработке библиотеки."
-                   
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                       
-                   FontFamily="\Fonts\#Jost"
-                   
-                   FontSize="25"/>
+                CornerRadius="20"
+                Background="#383838"/>
+        <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ItemsSource="{Binding ItemSource}"
+                  HorizontalAlignment="Stretch"
+                  Margin="25 23 0 25">
+
+            <ListView.Resources>
+                <SolidColorBrush x:Key="MaterialDesignPaper" Color="#383838"/>
+                <Style TargetType="{x:Type ScrollBar}">
+                    <Setter Property="Template"
+                                    Value="{StaticResource VerticalScrollBarDark}"/>
+                </Style>
+            </ListView.Resources>
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <materialDesing:Card Background="#121212"
+                                         materialDesing:ElevationAssist.Elevation="Dp6">
+                        <Grid Margin="5">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Image Grid.Row="0"
+                               MaxWidth="292"
+                               MaxHeight="136"
+                               Source="{Binding DisplayedImage}"/>
+                        </Grid>
+                    </materialDesing:Card>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

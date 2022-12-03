@@ -40,6 +40,11 @@ namespace Lite_Ceep_Store.Service
 
             return key;
         }
+        public async Task<int> FindIdGame(string key)
+        {
+            await ReadKeysAsync();
+            return keys.SingleOrDefault(u => u.KEY.Equals(key)).ID;
+        }
 
         private static string CreateKeyPart(Random rnd)
         {
@@ -56,6 +61,10 @@ namespace Lite_Ceep_Store.Service
 
             if (keys.SingleOrDefault(u => u.KEY.Equals(key)).Status.Equals(Key.Status_key.Actived))
                 return false;
+
+            if (Global.CurrentUser.Games.SingleOrDefault(g => g.Id.Equals(keys[index].ID)) is not null)
+                return false;
+
 
             keys[index].Status = Key.Status_key.Actived;
             await SaveKeyAsync();

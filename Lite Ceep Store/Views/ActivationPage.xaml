@@ -86,6 +86,9 @@
 
             <TextBox Grid.Row="2"
                      Style="{StaticResource MaterialDesignTextBox}"
+                     Text="{Binding Key, 
+                            Mode=TwoWay, 
+                            UpdateSourceTrigger=PropertyChanged}"
                      materialDesing:TextFieldAssist.CharacterCounterVisibility="Hidden"
                      
                      materialDesing:HintAssist.Hint="0000-0000-0000-0000-0000"
@@ -101,10 +104,12 @@
 
             <Button Grid.Row="3"
                     Content="АКТИВИРОВАТЬ"
+                    Command="{Binding ActivateCommand, 
+                              IsAsync=True}"
                     Background="#121212"
                     BorderBrush="Transparent"
                     Foreground="White"
-                    
+                       
                     FontFamily="\Fonts\#Jost"
                     FontSize="16"
                     Margin="0 15 0 0"/>

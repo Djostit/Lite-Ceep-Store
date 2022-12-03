@@ -25,6 +25,9 @@ namespace Lite_Ceep_Store.ViewModels
         }
         private async void OnGameChanged()
         {
+            if (Global.CurrentUser.Balance < int.Parse(Game.Price.Split(' ')[0]))
+                return;
+
             await _messageBus.SendTo<BuyingGameVM>(new GameMessage(Game));
             _pageService.ChangePage(new BuyingGame());
 

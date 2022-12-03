@@ -23,6 +23,7 @@ namespace Lite_Ceep_Store
             services.AddTransient<SettingPageVM>();
 
             services.AddTransient<BuyingGameVM>();
+            services.AddTransient<SuccessfulPayVM>();
 
 
             services.AddSingleton<PageService>();
@@ -50,6 +51,7 @@ namespace Lite_Ceep_Store
         public ReplenishmentBalanceVM ReplenishmentBalanceVM => _provider.GetRequiredService<ReplenishmentBalanceVM>();
         public SettingPageVM SettingPageVM => _provider.GetRequiredService<SettingPageVM>();
         public BuyingGameVM BuyingGameVM => _provider.GetRequiredService<BuyingGameVM>();
+        public SuccessfulPayVM SuccessfulPayVM => _provider.GetRequiredService<SuccessfulPayVM>();
 
     }
 }

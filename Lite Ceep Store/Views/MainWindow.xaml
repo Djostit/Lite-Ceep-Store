@@ -20,15 +20,16 @@
         Background="Transparent">
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0"
-                      CornerRadius="0"
+                      CornerRadius="15 15 0 15"
                       CaptionHeight="0"
                       UseAeroCaptionButtons="False"
-                      ResizeBorderThickness="8"/>
+                      ResizeBorderThickness="10"/>
     </WindowChrome.WindowChrome>
     <Grid>
         <Border Background="#121212"
                 BorderBrush="#383838"
-                BorderThickness="5"
+                BorderThickness="10"
+                Margin="-5"
                 CornerRadius="8 8 0 8" 
                 Grid.RowSpan="2"/>
         <Grid x:Name="GridUpperPanel"

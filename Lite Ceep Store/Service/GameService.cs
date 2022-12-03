@@ -37,5 +37,17 @@ namespace Lite_Ceep_Store.Service
 
             await SaveGameAsync();
         }
+        public List<Game> GetLibrary(List<UserGames> ids)
+        {
+            var a = new List<Game>();
+
+            for(int i = 0; i < ids.Count; i++)
+            {
+                var game = Global.Games.SingleOrDefault(g => g.Id.Equals(ids[i].Id));
+                a.Add(game);
+            }
+
+            return a;
+        }
     }
 }
