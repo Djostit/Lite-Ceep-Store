@@ -3,9 +3,6 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xceed.Document.NET;
 using Xceed.Words.NET;
 
@@ -25,7 +22,6 @@ namespace Lite_Ceep_Store.Service
                 { "EMAIL", Global.CurrentUser.Username },
                 { "KEY", KEY }
             };
-            string[,] a = { { "cs", "valve", "500" }, { "rust", "facepunch", "300" } };
             //Load a document.
             using DocX document = DocX.Load(Path.GetFullPath(PATH).Replace(@"\bin\Debug\net7.0-windows\", @"\"));
             // Check if all the replace patterns are used in the loaded document.

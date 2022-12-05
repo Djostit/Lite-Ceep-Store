@@ -1,8 +1,4 @@
-﻿using Lite_Ceep_Store.Messages;
-using Lite_Ceep_Store.Service;
-using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
+﻿using Lite_Ceep_Store.Service;
 using System.Windows;
 
 namespace Lite_Ceep_Store

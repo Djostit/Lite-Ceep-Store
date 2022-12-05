@@ -45,7 +45,7 @@ namespace Lite_Ceep_Store.ViewModels
             SelectedCountry = Country.SingleOrDefault(c => c.code.Equals(CultureInfo.CurrentCulture.Name.Split('-')[1]));
             usernames = _userService.GetUsernames();
         }
-        public AsyncCommand SignUpCommand => new(async () => 
+        public AsyncCommand SignUpCommand => new(async () =>
         {
             await _userService.AddUserAsync(Name, LastName, new DateOnly(int.Parse(Birthday.Split('.')[2]),
                                                                         int.Parse(Birthday.Split('.')[0]),
@@ -74,7 +74,7 @@ namespace Lite_Ceep_Store.ViewModels
                      || int.Parse(Birthday.Split('.')[2].Split(' ')[0]) >= DateEnd.Year
                      && int.Parse(Birthday.Split('.')[0].Split(' ')[0]) > DateEnd.Month
                      || int.Parse(Birthday.Split('.')[2].Split(' ')[0]) >= DateEnd.Year
-                     && int.Parse(Birthday.Split('.')[0].Split(' ')[0]) >= DateEnd.Month 
+                     && int.Parse(Birthday.Split('.')[0].Split(' ')[0]) >= DateEnd.Month
                      && int.Parse(Birthday.Split('.')[1].Split(' ')[0]) > DateEnd.Day)
                 ErrorMessageBirthday = "Неверный формат";
             else if (int.Parse(Birthday.Split('.')[2].Split(' ')[0]) < DateStart.Year)
@@ -86,7 +86,7 @@ namespace Lite_Ceep_Store.ViewModels
                 ErrorMessageUsername = "Обязательно";
             else if (Username.Length < 3)
                 ErrorMessageUsername = "Слишком короткий";
-            else if(Username.Contains(' '))
+            else if (Username.Contains(' '))
                 ErrorMessageUsername = "Неверный формат";
             else if (usernames.SingleOrDefault(u => u.Username.ToLower().Equals(Username.ToLower())) != null)
                 ErrorMessageUsername = "Уже существует";

@@ -1,12 +1,9 @@
 ﻿using Lite_Ceep_Store.Assets;
 using Lite_Ceep_Store.Models;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Lite_Ceep_Store.Service
@@ -41,7 +38,7 @@ namespace Lite_Ceep_Store.Service
         {
             var a = new List<Game>();
 
-            for(int i = 0; i < ids.Count; i++)
+            for (int i = 0; i < ids.Count; i++)
             {
                 var game = Global.Games.SingleOrDefault(g => g.Id.Equals(ids[i].Id));
                 a.Add(game);

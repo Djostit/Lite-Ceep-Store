@@ -21,15 +21,15 @@ namespace Lite_Ceep_Store.ViewModels
         {
             _pageService = pageService;
         }
-        public AsyncCommand AddMoneyCommand => new(async () => 
+        public AsyncCommand AddMoneyCommand => new(async () =>
         {
             Global.CurrentUser.Balance += int.Parse(SelectedAmmount.Split(' ')[0].ToString());
             CurrentBalance = Global.CurrentUser.Balance.ToString() + "₽";
             isOpen = true;
             await Task.Delay(1500);
             isOpen = false;
-            
-        }, bool () => 
+
+        }, bool () =>
         {
             if (!isSelected)
             {

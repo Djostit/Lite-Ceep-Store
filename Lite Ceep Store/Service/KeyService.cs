@@ -3,10 +3,8 @@ using Lite_Ceep_Store.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Lite_Ceep_Store.Service
@@ -30,7 +28,7 @@ namespace Lite_Ceep_Store.Service
             await ReadKeysAsync();
 
             string key = $"{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}-{CreateKeyPart(rnd)}";
-            keys.Add(new Key 
+            keys.Add(new Key
             {
                 ID = ID,
                 KEY = key,

@@ -1,10 +1,7 @@
 ﻿using Lite_Ceep_Store.Assets;
-using Lite_Ceep_Store.Messages;
 using Lite_Ceep_Store.Models;
-using Lite_Ceep_Store.ViewModels;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -42,16 +39,16 @@ namespace Lite_Ceep_Store.Service
         {
             await ReadUsersAsync();
 
-            Users.Add( new User
-                    {
-                        Name = name,
-                        LastName = lastName,
-                        Birthday = birthday,
-                        Country = country,
-                        Username = username,
-                        Password = BCrypt.Net.BCrypt.HashPassword(password),
-                        Balance = 0
-                    });
+            Users.Add(new User
+            {
+                Name = name,
+                LastName = lastName,
+                Birthday = birthday,
+                Country = country,
+                Username = username,
+                Password = BCrypt.Net.BCrypt.HashPassword(password),
+                Balance = 0
+            });
 
             await SaveUserAsync();
         }

@@ -2,13 +2,7 @@
 using Lite_Ceep_Store.Service;
 using Lite_Ceep_Store.Views;
 using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
 
 namespace Lite_Ceep_Store.ViewModels
 {
@@ -20,7 +14,7 @@ namespace Lite_Ceep_Store.ViewModels
         public string Source { get; set; } = Path.GetFullPath($@"Assets\graph\AWbHE6aev0xvC9aeVAllAedg3g5ykf.jpg").Replace(@"\bin\Debug\net7.0-windows\", @"\");
         public string Title { get; set; }
         public string Description { get; set; }
-        public int Price { get; set; } 
+        public int Price { get; set; }
 
         public SettingPageVM(PageService pageService, GameService gameService)
         {
@@ -31,7 +25,7 @@ namespace Lite_Ceep_Store.ViewModels
         {
             _pageService.ChangePage(new MainPage());
         });
-        public DelegateCommand ChoiceSoure => new(() => 
+        public DelegateCommand ChoiceSoure => new(() =>
         {
             OpenFileDialog ofd = new()
             {
@@ -43,7 +37,7 @@ namespace Lite_Ceep_Store.ViewModels
                 Source = ofd.FileName;
             }
         });
-        public AsyncCommand SaveCommand => new(async() => 
+        public AsyncCommand SaveCommand => new(async () =>
         {
             await _gameService.AddGameAsync(Title, Source, Description, Price);
         });

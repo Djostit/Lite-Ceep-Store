@@ -14,5 +14,5 @@ namespace Lite_Ceep_Store.Models
             get { return Path.GetFullPath($@"Assets\graph\{Image}").Replace(@"\bin\Debug\net7.0-windows\", @"\"); }
         }
     }
-    
+
 }

@@ -26,14 +26,14 @@ namespace Lite_Ceep_Store.ViewModels
             _keyService = keyService;
 
             _messageBus.Receive<GameMessage>(this, async game => Game = game.Game);
-            
+
         }
-        public DelegateCommand ReturnBackCommand => new(() => 
+        public DelegateCommand ReturnBackCommand => new(() =>
         {
             _pageService.ChangePage(new MainPage());
         });
 
-        public AsyncCommand BuyGameCommand => new(async() => 
+        public AsyncCommand BuyGameCommand => new(async () =>
         {
             Global.CurrentUser.Balance -= int.Parse(Game.Price.Split(' ')[0]);
             string key = await _keyService.CreateKey(Game.Id);

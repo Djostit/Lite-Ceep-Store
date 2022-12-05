@@ -4,12 +4,7 @@ using Lite_Ceep_Store.Messages;
 using Lite_Ceep_Store.Models;
 using Lite_Ceep_Store.Service;
 using Lite_Ceep_Store.Views;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lite_Ceep_Store.ViewModels
 {

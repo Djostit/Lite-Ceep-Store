@@ -1,14 +1,7 @@
 ﻿using DevExpress.Mvvm;
-using Lite_Ceep_Store.Messages;
 using Lite_Ceep_Store.Service;
 using Lite_Ceep_Store.Views;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lite_Ceep_Store.ViewModels
 {
@@ -29,18 +22,18 @@ namespace Lite_Ceep_Store.ViewModels
             _userService = userService;
             _messageBus = messageBus;
         }
-        public AsyncCommand SignInCommand => new(async() =>
+        public AsyncCommand SignInCommand => new(async () =>
         {
             if (await _userService.AuthorizeUserAsync(Username, Password) == true)
             {
-                ErrorMessageButton= string.Empty;
+                ErrorMessageButton = string.Empty;
                 _pageService.ChangePage(new MainPage());
             }
             else
             {
                 ErrorMessageButton = "Неверное имя пользователя или пароль";
             }
-        }, bool () => 
+        }, bool () =>
         {
             if (string.IsNullOrWhiteSpace(Username))
                 ErrorMessageUsername = "Обязательно";
