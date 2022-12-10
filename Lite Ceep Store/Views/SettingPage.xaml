@@ -47,21 +47,21 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button Height="20"
-                            Width="20"
-                    
-                            HorizontalAlignment="Center"
+                    <Button HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                     
                             Style="{StaticResource ReturnBackStyle}"
-                            Command="{Binding ReturnBackCommand}"
-                            Margin="0 0 5 0"/>
+                            Command="{Binding ReturnBackCommand}"/>
+                    <Separator Grid.Column="1"
+                               Style="{StaticResource VerticalSeparatorStyle}"
+                               Margin="0 7 0 7"
+                               Background="#808080"/>
 
-                    <TextBlock Grid.Column="1"
-                       Foreground="White"
+                    <TextBlock Grid.Column="2"
+                       Foreground="#808080"
                        Text="Настройки"
                        
                        HorizontalAlignment="Center"
@@ -76,11 +76,39 @@
                         materialDesing:ColorZoneAssist.Mode="Custom"
                         materialDesing:ColorZoneAssist.Foreground="White">
                     <TabItem Header="Пользователь">
-                        <TextBlock Margin="8"
+                        <Grid Margin="8">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Margin="8"
                                Text="Пусто."
                                FontFamily="\Fonts\#Jost"/>
+
+                            <PasswordBox Grid.Row="1"
+                                         MaxLength="9"
+                                         Visibility="{Binding IsVisible, 
+                                                      Mode=TwoWay}"
+                                         Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}"
+                                         materialDesing:PasswordBoxAssist.Password="{Binding AdminPassword,
+                                                                                     Mode=TwoWay,
+                                                                                     UpdateSourceTrigger=PropertyChanged}"
+                         
+                                         materialDesing:TextFieldAssist.CharacterCounterVisibility="Hidden"
+                                         materialDesing:HintAssist.Background="#383838"
+                                         materialDesing:HintAssist.Hint="Пароль"
+                                         materialDesing:HintAssist.FontFamily="\Fonts\#Jost"
+                     
+                                         FontFamily="\Fonts\#Jost"
+                                         Foreground="White">
+                            </PasswordBox>
+                        </Grid>
+                        
                     </TabItem>
-                    <TabItem Header="Игра">
+                    <TabItem Header="Игра"
+                             IsEnabled="{Binding IsEnabled, 
+                                         Mode=TwoWay}">
                         <Grid Margin="0 10 0 0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>

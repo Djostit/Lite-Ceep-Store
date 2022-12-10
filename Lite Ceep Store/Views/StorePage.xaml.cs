@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls;
-
-namespace Lite_Ceep_Store.Views
+﻿namespace Lite_Ceep_Store.Views
 {
     /// <summary>
     /// Логика взаимодействия для StorePage.xaml

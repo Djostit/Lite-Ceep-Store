@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using System.Windows.Controls;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace Lite_Ceep_Store.Views
 {
@@ -24,7 +22,7 @@ namespace Lite_Ceep_Store.Views
 
         private void NoAllowedSpace(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Space)
+            if (e.Key == System.Windows.Input.Key.Space)
             {
                 e.Handled = true;
             }

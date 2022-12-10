@@ -1,10 +1,4 @@
-﻿using Lite_Ceep_Store.Assets;
-using Lite_Ceep_Store.Models;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 
 namespace Lite_Ceep_Store.Service
 {
@@ -14,7 +8,7 @@ namespace Lite_Ceep_Store.Service
         private static async Task ReadGamesAsync() => Global.Games = JsonConvert.DeserializeObject<List<Game>>(await File.ReadAllTextAsync(Path.GetFullPath(PATH)
             .Replace(@"\bin\Debug\net7.0-windows\", @"\")));
         private static async Task SaveGameAsync() => await File.WriteAllTextAsync(Path.GetFullPath(PATH)
-            .Replace(@"\bin\Debug\net7.0-windows\", @"\"), JsonConvert.SerializeObject(Global.Games, Formatting.Indented));
+            .Replace(@"\bin\Debug\net7.0-windows\", @"\"), JsonConvert.SerializeObject(Global.Games, Newtonsoft.Json.Formatting.Indented));
 
         public async Task AddGameAsync(string title, string imageSource, string description, int price)
         {

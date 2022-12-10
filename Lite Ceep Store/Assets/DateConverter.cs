@@ -1,8 +1,4 @@
-﻿using System;
-using System.Globalization;
-using System.Windows.Data;
-
-namespace Lite_Ceep_Store.Assets
+﻿namespace Lite_Ceep_Store.Assets
 {
     public class DateConverter : IValueConverter
     {

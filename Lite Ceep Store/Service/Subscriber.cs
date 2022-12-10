@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Lite_Ceep_Store.Service
+﻿namespace Lite_Ceep_Store.Service
 {
     internal class MessageSubscriber : IDisposable
     {

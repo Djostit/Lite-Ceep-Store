@@ -1,10 +1,4 @@
-﻿using DevExpress.Mvvm;
-using Lite_Ceep_Store.Service;
-using Lite_Ceep_Store.Views;
-using System.Windows;
-using System.Windows.Controls;
-
-namespace Lite_Ceep_Store.ViewModels
+﻿namespace Lite_Ceep_Store.ViewModels
 {
     public class WindowVM : BindableBase
     {

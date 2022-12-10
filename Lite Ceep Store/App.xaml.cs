@@ -1,7 +1,4 @@
-﻿using Lite_Ceep_Store.Service;
-using System.Windows;
-
-namespace Lite_Ceep_Store
+﻿namespace Lite_Ceep_Store
 {
     /// <summary>
     /// Interaction logic for App.xaml

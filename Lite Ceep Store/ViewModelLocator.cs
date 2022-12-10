@@ -1,12 +1,8 @@
-﻿using Lite_Ceep_Store.Service;
-using Lite_Ceep_Store.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace Lite_Ceep_Store
+﻿namespace Lite_Ceep_Store
 {
     internal class ViewModelLocator
     {
-        private static ServiceProvider _provider;
+        private static ServiceProvider? _provider;
         public static void Init()
         {
             var services = new ServiceCollection();

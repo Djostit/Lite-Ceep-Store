@@ -129,6 +129,14 @@
                         FontSize="20"
                         Foreground="White"
                         FontFamily="\Fonts\#Jost">
+                        <MenuItem Foreground="White"
+                                  Header="{Binding Username}"
+                                  FontSize="26"
+                                  IsEnabled="False"/>
+
+                        <Separator Style="{StaticResource MaterialDesignLightSeparator}"
+                                   Margin="10 0 10 0"/>
+
                         <MenuItem Header="Пополнить баланс"
                                   FontSize="14"
                                   Command="{Binding CommandReplenishmentBalance, 
@@ -136,6 +144,14 @@
                         <MenuItem Header="Настройки"
                                   FontSize="14"
                                   Command="{Binding CommandSetting}"/>
+                        
+                        <Separator Style="{StaticResource MaterialDesignLightSeparator}"
+                                   Margin="10 0 10 0"/>
+
+                        <MenuItem Header="Выйти"
+                                  FontSize="14"
+                                  Command="{Binding CommandExit, 
+                                            IsAsync=True}"/>
                         
                     </MenuItem>
                     <Menu.Resources>

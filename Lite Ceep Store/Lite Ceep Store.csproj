@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <None Remove="Fonts\Jost.ttf" />
+    <None Remove="Images\arrow_test.png" />
     <None Remove="Images\BITCOIN.png" />
     <None Remove="Images\close_app_def.png" />
     <None Remove="Images\max_def.png" />
@@ -45,6 +46,7 @@
   <ItemGroup>
     <Resource Include="Fonts\Jost.ttf" />
     <Resource Include="Images\256.ico" />
+    <Resource Include="Images\arrow_test.png" />
     <Resource Include="Images\BITCOIN.png" />
     <Resource Include="Images\close_app_def.png" />
     <Resource Include="Images\logo.png" />
@@ -90,7 +92,6 @@
 
   <ItemGroup>
     <Folder Include="Assets\graph\" />
-    <Folder Include="Unit Testing\" />
   </ItemGroup>
 
 </Project>

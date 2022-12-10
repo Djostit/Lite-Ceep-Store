@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Controls;
-
-namespace Lite_Ceep_Store.Service
+﻿namespace Lite_Ceep_Store.Service
 {
     public class PageServiceInside
     {

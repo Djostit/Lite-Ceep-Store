@@ -1,13 +1,4 @@
-﻿using Lite_Ceep_Store.Assets;
-using Lite_Ceep_Store.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Lite_Ceep_Store.Service
+﻿namespace Lite_Ceep_Store.Service
 {
     public class KeyService
     {
@@ -22,7 +13,7 @@ namespace Lite_Ceep_Store.Service
         private static async Task ReadKeysAsync() => keys = JsonConvert.DeserializeObject<List<Key>>(await File.ReadAllTextAsync(Path.GetFullPath(PATH)
             .Replace(@"\bin\Debug\net7.0-windows\", @"\")));
         private static async Task SaveKeyAsync() => await File.WriteAllTextAsync(Path.GetFullPath(PATH)
-            .Replace(@"\bin\Debug\net7.0-windows\", @"\"), JsonConvert.SerializeObject(keys, Formatting.Indented));
+            .Replace(@"\bin\Debug\net7.0-windows\", @"\"), JsonConvert.SerializeObject(keys, Newtonsoft.Json.Formatting.Indented));
         public async Task<string> CreateKey(int ID)
         {
             await ReadKeysAsync();

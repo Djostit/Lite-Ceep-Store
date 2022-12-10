@@ -6,7 +6,7 @@
     "Country": "Russian Federation",
     "Username": "qwerty123",
     "Password": "$2a$11$A/BbWKOAWUZNfuRtulS4FOJNdON/zSSvexDi0S2XN0DzIR9GBtcWG",
-    "Balance": 180,
+    "Balance": 1153,
     "Games": [
       {
         "Id": 4
@@ -66,6 +66,20 @@
     "Games": [
       {
         "Id": 17
+      }
+    ]
+  },
+  {
+    "Name": "asd",
+    "LastName": "asd",
+    "Birthday": "04.12.2010",
+    "Country": "Russian Federation",
+    "Username": "asd",
+    "Password": "$2a$11$i/p18Gk9XJyEZFIRYuWu/uYiegO/s6NXzrV3U6FMYmyqapB3SZRzi",
+    "Balance": 15,
+    "Games": [
+      {
+        "Id": 6
       }
     ]
   }

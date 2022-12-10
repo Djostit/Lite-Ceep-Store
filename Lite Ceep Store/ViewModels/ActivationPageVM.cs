@@ -1,10 +1,4 @@
-﻿using DevExpress.Mvvm;
-using Lite_Ceep_Store.Assets;
-using Lite_Ceep_Store.Messages;
-using Lite_Ceep_Store.Models;
-using Lite_Ceep_Store.Service;
-
-namespace Lite_Ceep_Store.ViewModels
+﻿namespace Lite_Ceep_Store.ViewModels
 {
     public class ActivationPageVM : BindableBase
     {

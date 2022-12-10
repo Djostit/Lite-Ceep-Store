@@ -1,8 +1,4 @@
-﻿using DevExpress.Mvvm;
-using Lite_Ceep_Store.Service;
-using Lite_Ceep_Store.Views;
-using Microsoft.Win32;
-using System.IO;
+﻿using System.Diagnostics;
 
 namespace Lite_Ceep_Store.ViewModels
 {
@@ -10,11 +6,33 @@ namespace Lite_Ceep_Store.ViewModels
     {
         private readonly PageService _pageService;
         private readonly GameService _gameService;
+        #region Pass
+        private const string AdmPass = "$2a$11$1TS7rLdzAiypFZAkEUs9XOKPGVm7Y1s/ILlRVqCoSi1O82ZYq/SpG";
+        #endregion
 
         public string Source { get; set; } = Path.GetFullPath($@"Assets\graph\AWbHE6aev0xvC9aeVAllAedg3g5ykf.jpg").Replace(@"\bin\Debug\net7.0-windows\", @"\");
         public string Title { get; set; }
         public string Description { get; set; }
         public int Price { get; set; }
+
+        public bool IsEnabled { get; set; } = false;
+        public Visibility IsVisible { get; set; } = Visibility.Visible;
+
+        public string AdminPassword
+        {
+            get { return GetValue<string>(); }
+            set { SetValue(value, changedCallback: OnPasswordChanged); }
+        }
+
+        private void OnPasswordChanged()
+        {
+            if (AdminPassword.Length == 9
+                    && BCrypt.Net.BCrypt.Verify(AdminPassword, AdmPass))
+            {
+                IsEnabled = true;
+                IsVisible = Visibility.Collapsed;
+            }
+        }
 
         public SettingPageVM(PageService pageService, GameService gameService)
         {

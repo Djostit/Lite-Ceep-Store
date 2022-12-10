@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace Lite_Ceep_Store.Models
+﻿namespace Lite_Ceep_Store.Models
 {
     public class Game
     {

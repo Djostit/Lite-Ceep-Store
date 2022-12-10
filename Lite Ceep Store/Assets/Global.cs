@@ -1,9 +1,4 @@
-﻿using Lite_Ceep_Store.Models;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.IO;
-
-namespace Lite_Ceep_Store.Assets
+﻿namespace Lite_Ceep_Store.Assets
 {
     public static class Global
     {

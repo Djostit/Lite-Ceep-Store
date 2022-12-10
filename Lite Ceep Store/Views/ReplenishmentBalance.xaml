@@ -42,17 +42,18 @@
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
-                <Button Height="20"
-                    Width="20"
+                <Button HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
                     
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    
-                    Style="{StaticResource ReturnBackStyle}"
-                    Command="{Binding ReturnBackCommand}"
-                    Margin="0 0 5 0"/>
-                <TextBlock Grid.Column="1"
+                            Style="{StaticResource ReturnBackStyle}"
+                            Command="{Binding ReturnBackCommand}"/>
+                <Separator Grid.Column="1"
+                               Style="{StaticResource VerticalSeparatorStyle}"
+                               Margin="0 7 0 7"
+                               Background="#808080"/>
+                <TextBlock Grid.Column="2"
                        Foreground="White"
                        Text="Ваш баланс /"
                        
@@ -62,7 +63,7 @@
                        FontFamily="\Fonts\#Jost"
                        FontSize="26"/>
 
-                <TextBlock Grid.Column="2"
+                <TextBlock Grid.Column="3"
                        Foreground="White"
                        Text="{Binding CurrentBalance,
                               Mode=TwoWay,

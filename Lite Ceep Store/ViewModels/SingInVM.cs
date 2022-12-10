@@ -1,7 +1,4 @@
-﻿using DevExpress.Mvvm;
-using Lite_Ceep_Store.Service;
-using Lite_Ceep_Store.Views;
-using System.Linq;
+﻿using System.Diagnostics;
 
 namespace Lite_Ceep_Store.ViewModels
 {

@@ -1,10 +1,4 @@
-﻿using Lite_Ceep_Store.Assets;
-using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Xceed.Document.NET;
-using Xceed.Words.NET;
+﻿
 
 namespace Lite_Ceep_Store.Service
 {

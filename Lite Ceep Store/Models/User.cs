@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Lite_Ceep_Store.Models
+﻿namespace Lite_Ceep_Store.Models
 {
     public class User
     {

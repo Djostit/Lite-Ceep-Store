@@ -1,6 +1,4 @@
-﻿using Lite_Ceep_Store.Models;
-
-namespace Lite_Ceep_Store.Messages
+﻿namespace Lite_Ceep_Store.Messages
 {
     public class GameMessage : IMessage
     {
