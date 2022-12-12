@@ -425,6 +425,40 @@
                 </Setter>
             </Style>
 
+            <ImageBrush x:Key="return_close_def"
+                ImageSource="\Images\return_close_def.png"
+                Stretch="None" />
+
+            <Style x:Key="ReturnCloseStyle" 
+                   TargetType="{x:Type Button}">
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="Width" Value="11"/>
+                <Setter Property="Opacity" Value="0.7"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="border"
+                            BorderThickness="0"
+                            Background="{StaticResource return_close_def}">
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
+                                    <Setter Property="Opacity"
+                                            Value="1" />
+                                </Trigger>
+                                <Trigger Property="IsPressed"
+                                 Value="True">
+                                    <Setter Property="Background"
+                                    TargetName="border"
+                                    Value="{StaticResource return_close_def}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
             <Style x:Key="VerticalSeparatorStyle"
                    TargetType="{x:Type Separator}"
                    BasedOn="{StaticResource MaterialDesignLightSeparator}">

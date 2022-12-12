@@ -54,7 +54,7 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
                     
-                    Style="{StaticResource ReturnBackStyle}"
+                    Style="{StaticResource ReturnCloseStyle}"
                     Command="{Binding ReturnBackCommand}"/>
 
             <Separator Style="{StaticResource MaterialDesignLightSeparator}"
