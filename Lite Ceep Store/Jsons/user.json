@@ -82,5 +82,19 @@
         "Id": 6
       }
     ]
+  },
+  {
+    "Name": "Алмаз",
+    "LastName": "Десанский",
+    "Birthday": "03.12.2010",
+    "Country": "Russian Federation",
+    "Username": "almaz",
+    "Password": "$2a$11$Rua7Fb7KWeWkUEVtuDWtbOLqiKRcqpIsFTCZz5qhcQhKDO3h50A1u",
+    "Balance": 5285,
+    "Games": [
+      {
+        "Id": 2
+      }
+    ]
   }
 ]

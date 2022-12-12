@@ -10,6 +10,12 @@
                 return value;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => DateOnly.FromDateTime((DateTime)value);
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is null)
+                return default;
+            else
+                return DateOnly.FromDateTime((DateTime)value);
+        }
     }
 }

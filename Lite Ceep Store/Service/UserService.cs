@@ -14,6 +14,19 @@
             ReadUsersAsync().GetAwaiter();
             return Users;
         }
+        public static async Task ReadUsersForTest() => Users = JsonConvert.DeserializeObject<List<User>>(await File.ReadAllTextAsync(@"C:\Users\Djostit\Source\Repos\Djostit\Lite-Ceep-Store\Lite Ceep Store\Jsons\user.json"));
+
+        public static async Task<bool> AuthorizeUserForTest(string username, string password)
+        {
+            await ReadUsersForTest();
+
+            var user = Users.SingleOrDefault(u => u.Username.Equals(username));
+
+            if (user == null)
+                return false;
+
+            return BCrypt.Net.BCrypt.Verify(password, user.Password);
+        }
         public async Task<bool> AuthorizeUserAsync(string username, string password)
         {
             await ReadUsersAsync();

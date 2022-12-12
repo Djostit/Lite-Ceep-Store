@@ -21,12 +21,17 @@ namespace Lite_Ceep_Store.Service.Tests
         [TestMethod]
         public async Task AuthorizeUser_Log_qwerty123_Pass_qwerty123_Return_True()
         {
-            Assert.IsTrue(await UserService.AuthorizeUser("qwerty123", "qwerty123"));
+            Assert.IsTrue(await UserService.AuthorizeUserForTest("qwerty123", "qwerty123"));
         }
         [TestMethod]
         public async Task AuthorizeUser_Log_qwerty123_Pass_qwertyyyy123_Return_False()
         {
-            Assert.IsFalse(await UserService.AuthorizeUser("qwerty123", "qwertyyyy123"));
+            Assert.IsFalse(await UserService.AuthorizeUserForTest("qwerty123", "qwertyyyy123"));
+        }
+        [TestMethod]
+        public async Task AuthorizeUser_Log_qwerty1231111_Pass_qwertyyyy123_Return_False()
+        {
+            Assert.IsFalse(await UserService.AuthorizeUserForTest("qwerty1231111", "qwertyyyy123"));
         }
     }
 }
