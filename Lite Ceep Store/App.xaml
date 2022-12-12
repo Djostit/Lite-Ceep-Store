@@ -14,6 +14,7 @@
             
             <local:ViewModelLocator x:Key="ViewModelLocator" />
             <converter:DateConverter x:Key="DateConverter" />
+            <converter:NullableZeroConverter x:Key="NullableZeroConverter" />
 
             <ImageBrush x:Key="close_app_def"
                 ImageSource="\Images\close_app_def.png"

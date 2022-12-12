@@ -167,7 +167,8 @@
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                  Text="{Binding Price, 
                                         Mode=TwoWay, 
-                                        UpdateSourceTrigger=PropertyChanged}"
+                                        UpdateSourceTrigger=PropertyChanged,
+                                        Converter={StaticResource NullableZeroConverter}}"
                                  PreviewTextInput="NumericOnly"
                                  PreviewKeyDown="NoAllowedSpace"
                                  
