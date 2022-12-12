@@ -20,6 +20,7 @@
     <None Remove="Images\PAYPAL.png" />
     <None Remove="Images\QIWI.png" />
     <None Remove="Images\return_back_def.png" />
+    <None Remove="Images\return_close_def.png" />
     <None Remove="Images\ROBOKASSA.png" />
     <None Remove="Images\triangleScrollBottom_def.png" />
     <None Remove="Images\triangleScrollTop_def.png" />
@@ -31,6 +32,10 @@
 
   <ItemGroup>
     <Content Include="Images\256.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\return_close_def.png" />
   </ItemGroup>
 
   <ItemGroup>

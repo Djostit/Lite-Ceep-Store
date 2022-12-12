@@ -6,7 +6,8 @@
         private readonly MessageBus _messageBus;
         public string Key { get; set; } = _key;
         private static string _key;
-
+        public string ErrorMessageKey { get; set; }
+        public bool isOpen { get; set; }
         public ActivationPageVM(KeyService keyService, MessageBus messageBus)
         {
             _keyService = keyService;
@@ -22,7 +23,13 @@
                 {
                     Id = await _keyService.FindIdGame(Key)
                 });
+                ErrorMessageKey = string.Empty;
             }
+            else
+                ErrorMessageKey = "Неверный ключ или игра уже активирована";
+            isOpen = true;
+            await Task.Delay(1500);
+            isOpen = false;
         }, bool () => { return Key is not null && Key.Length == 29; });
     }
 }

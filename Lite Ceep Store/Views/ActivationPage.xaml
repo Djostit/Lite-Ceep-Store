@@ -101,8 +101,17 @@
                      Foreground="White"
                      Margin="0 15 0 0">
             </TextBox>
+            
+            <TextBlock Grid.Row="3"
+                       Text="{Binding ErrorMessageKey,
+                                  Mode=TwoWay,
+                                  UpdateSourceTrigger=PropertyChanged}"
+                       FontFamily="\Fonts\#Jost"
+                       Foreground="#de3341"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"/>
 
-            <Button Grid.Row="3"
+            <Button Grid.Row="4"
                     Content="АКТИВИРОВАТЬ"
                     Command="{Binding ActivateCommand, 
                               IsAsync=True}"
@@ -112,12 +121,31 @@
                        
                     FontFamily="\Fonts\#Jost"
                     FontSize="16"
-                    Margin="0 15 0 0"/>
+                    Margin="0 5 0 0"/>
 
         </Grid>
         <Border BorderThickness="1"
                 CornerRadius="20"
                 Grid.ColumnSpan="2"
                 Background="#383838"/>
+        <materialDesing:DrawerHost HorizontalAlignment="Center"
+                                   VerticalAlignment="Bottom"
+                                   BorderThickness="2"
+                                   OpenMode="Standard"
+                                   BottomDrawerCornerRadius="20 20 0 0"
+                                   Grid.ColumnSpan="2"
+                                   BottomDrawerBackground="#121212"
+                                   Margin="0 0 0 -2"
+                                   IsBottomDrawerOpen="{Binding isOpen}">
+            <materialDesing:DrawerHost.BottomDrawerContent>
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontFamily="\Fonts\#Jost"
+                           Text="Пошел нахуй!"
+                           Foreground="White"
+                           FontSize="20"
+                           Margin="5"/>
+            </materialDesing:DrawerHost.BottomDrawerContent>
+        </materialDesing:DrawerHost>
     </Grid>
 </Page>

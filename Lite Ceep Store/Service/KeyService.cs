@@ -48,7 +48,8 @@
 
             int index = keys.FindIndex(k => k.KEY.Equals(key));
 
-            if (keys.SingleOrDefault(u => u.KEY.Equals(key)).Status.Equals(Key.Status_key.Actived))
+            if (keys.SingleOrDefault(u => u.KEY.Equals(key)) is null
+                || keys.SingleOrDefault(u => u.KEY.Equals(key)).Status.Equals(Key.Status_key.Actived))
                 return false;
 
             if (Global.CurrentUser.Games.SingleOrDefault(g => g.Id.Equals(keys[index].ID)) is not null)

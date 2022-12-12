@@ -6,7 +6,7 @@
         private readonly PageService _pageService;
         private readonly KeyService _keyService;
         public static Game Game { get; set; } = new Game();
-        public string Username { get; set; } = Global.CurrentUser.Username;
+        public string Username { get; set; } = Global.CurrentUser.Username == null ? Global.CurrentUser.Username : new CultureInfo("ru-RU").TextInfo.ToTitleCase(Global.CurrentUser.Username);
         public string Title { get; set; } = Game.Title;
         public string sourceImage { get; set; } = Game.DisplayedImage;
         public string Description { get; set; } = Game.Description;
