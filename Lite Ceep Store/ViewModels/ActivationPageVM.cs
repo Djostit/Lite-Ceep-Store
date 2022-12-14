@@ -30,6 +30,6 @@
             isOpen = true;
             await Task.Delay(1500);
             isOpen = false;
-        }, bool () => { return Key is not null && Key.Length == 29; });
+        }, bool () => { return Key is not null && !Key.Contains(" ") && Key.Length == 29; });
     }
 }

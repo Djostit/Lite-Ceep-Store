@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace Lite_Ceep_Store.ViewModels
+﻿namespace Lite_Ceep_Store.ViewModels
 {
     public class MainPageVM : BindableBase
     {

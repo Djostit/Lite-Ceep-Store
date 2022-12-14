@@ -64,6 +64,8 @@
                        Margin="0 0 0 15"/>
 
             <TextBox Grid.Row="2"
+                     MaxLength="100"
+                     materialDesing:TextFieldAssist.CharacterCounterVisibility="Hidden"
                      
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      Text="{Binding Username,
@@ -92,7 +94,6 @@
                        Margin="5 0 5 10"/>
 
             <PasswordBox Grid.Row="4"
-                         
                          Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}"
                          materialDesing:PasswordBoxAssist.Password="{Binding Password,
                             Mode=TwoWay,

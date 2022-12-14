@@ -6,7 +6,7 @@
     "Country": "Russian Federation",
     "Username": "qwerty123",
     "Password": "$2a$11$A/BbWKOAWUZNfuRtulS4FOJNdON/zSSvexDi0S2XN0DzIR9GBtcWG",
-    "Balance": 223,
+    "Balance": 645,
     "Games": [
       {
         "Id": 4
@@ -22,6 +22,12 @@
       },
       {
         "Id": 14
+      },
+      {
+        "Id": 18
+      },
+      {
+        "Id": 7
       }
     ]
   },

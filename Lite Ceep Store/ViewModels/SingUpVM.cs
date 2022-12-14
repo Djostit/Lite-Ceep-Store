@@ -11,7 +11,7 @@
             .Replace(@"\bin\Debug\net7.0-windows\", @"\"))));
 
         public DateTime DateStart { get; set; } = DateTime.Now.AddYears(-100);
-        public DateTime DateEnd { get; set; } = DateTime.Now.AddYears(-12);
+        public DateTime DateEnd { get; set; } = DateTime.Now.AddYears(-7);
         public Country SelectedCountry { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
@@ -44,14 +44,22 @@
         {
             if (string.IsNullOrWhiteSpace(Name))
                 ErrorMessageName = "Обязательно";
-            else if (Name.Contains(' '))
+            else if (Name.Contains(' ')
+                     || !Name.Any(char.IsLetter)
+                     || Name.Any(char.IsDigit)
+                     || Name.Any(char.IsSymbol)
+                     || Name.Any(char.IsPunctuation))
                 ErrorMessageName = "Неверный формат";
             else
                 ErrorMessageName = string.Empty;
 
             if (string.IsNullOrWhiteSpace(LastName))
                 ErrorMessageLastName = "Обязательно";
-            else if (LastName.Contains(' '))
+            else if (LastName.Contains(' ')
+                     || !LastName.Any(char.IsLetter)
+                     || LastName.Any(char.IsDigit)
+                     || LastName.Any(char.IsSymbol)
+                     || LastName.Any(char.IsPunctuation))
                 ErrorMessageLastName = "Неверный формат";
             else
                 ErrorMessageLastName = string.Empty;
@@ -74,7 +82,9 @@
                 ErrorMessageUsername = "Обязательно";
             else if (Username.Length < 3)
                 ErrorMessageUsername = "Слишком короткий";
-            else if (Username.Contains(' '))
+            else if (Username.Contains(' ')
+                     || Username.Any(char.IsSymbol)
+                     || Username.Any(char.IsPunctuation))
                 ErrorMessageUsername = "Неверный формат";
             else if (usernames.SingleOrDefault(u => u.Username.ToLower().Equals(Username.ToLower())) != null)
                 ErrorMessageUsername = "Уже существует";
