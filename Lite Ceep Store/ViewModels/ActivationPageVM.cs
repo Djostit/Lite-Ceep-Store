@@ -23,13 +23,13 @@
                 {
                     Id = await _keyService.FindIdGame(Key)
                 });
+                isOpen = true;
+                await Task.Delay(1500);
+                isOpen = false;
                 ErrorMessageKey = string.Empty;
             }
             else
                 ErrorMessageKey = "Неверный ключ или игра уже активирована";
-            isOpen = true;
-            await Task.Delay(1500);
-            isOpen = false;
         }, bool () => { return Key is not null && !Key.Contains(" ") && Key.Length == 29; });
     }
 }

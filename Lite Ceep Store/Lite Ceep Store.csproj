@@ -35,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\BITCOIN.png" />
     <Resource Include="Images\return_close_def.png" />
   </ItemGroup>
 
@@ -52,7 +53,6 @@
     <Resource Include="Fonts\Jost.ttf" />
     <Resource Include="Images\256.ico" />
     <Resource Include="Images\arrow_test.png" />
-    <Resource Include="Images\BITCOIN.png" />
     <Resource Include="Images\close_app_def.png" />
     <Resource Include="Images\logo.png" />
     <Resource Include="Images\max_def.png" />

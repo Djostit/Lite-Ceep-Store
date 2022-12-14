@@ -13,13 +13,14 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.5*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0"
               Panel.ZIndex="1"
-              VerticalAlignment="Stretch"
-              Margin="15 15 100 15">
+              HorizontalAlignment="Left"
+              VerticalAlignment="Center"
+              Margin="15 15 0 15">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
@@ -28,7 +29,8 @@
             <Border BorderThickness="1"
                     Grid.Row="0"
                     CornerRadius="20"
-                    VerticalAlignment="Stretch"
+                    Width="285"
+                    Height="350"
                     Background="#121212"/>
             
             <Image Source="\Images\logo.png"
@@ -141,7 +143,7 @@
                 <TextBlock HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontFamily="\Fonts\#Jost"
-                           Text="Пошел нахуй!"
+                           Text="Успешно!"
                            Foreground="White"
                            FontSize="20"
                            Margin="5"/>
