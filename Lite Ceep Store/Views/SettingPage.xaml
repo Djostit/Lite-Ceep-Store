@@ -43,7 +43,8 @@
                     CornerRadius="20"
                     Margin="-25 0 -25 -40"
                     Background="#383838"/>
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="0"
+                      Margin="0 15 0 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
@@ -116,11 +117,15 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Image Grid.Row="0"
-                               Source="{Binding Source, 
-                                        UpdateSourceTrigger=PropertyChanged}"/>
+                                   Width="292"
+                                   Height="136"
+                                   Source="{Binding Source,
+                                            Mode=TwoWay,
+                                            UpdateSourceTrigger=PropertyChanged}"/>
                             <Button Grid.Row="1"
                                 Margin="0 10 0 0"
                                 Content="Выбрать изображение"
@@ -196,6 +201,15 @@
                                               IsAsync=True}"
                                 
                                     FontFamily="\Fonts\#Jost"/>
+                            <TextBlock Grid.Row="6"
+                                       Text="{Binding ErrorMessage,
+                                              Mode=TwoWay,
+                                              UpdateSourceTrigger=PropertyChanged}"
+                                       FontFamily="\Fonts\#Jost"
+                                       Foreground="#de3341"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Margin="0 0 0 10"/>
                         </Grid>
                     </TabItem>
                 </TabControl>
