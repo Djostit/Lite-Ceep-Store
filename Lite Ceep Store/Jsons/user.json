@@ -105,5 +105,19 @@
         "Id": 2
       }
     ]
+  },
+  {
+    "Name": "йцу",
+    "LastName": "йцу",
+    "Birthday": "02.12.2015",
+    "Country": "Russian Federation",
+    "Username": "ййцуй",
+    "Password": "$2a$11$Rn8iG9SEjDTv6KkW9yuM4.DI6QVIBeJlfVVcKKPbXzKtWgO03iAUm",
+    "Balance": 3600,
+    "Games": [
+      {
+        "Id": 14
+      }
+    ]
   }
 ]

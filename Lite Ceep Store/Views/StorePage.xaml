@@ -49,8 +49,9 @@
                             </Grid.RowDefinitions>
 
                             <Image Grid.Row="0"
-                               Width="292"
-                               Height="136"
+                               MaxWidth="292"
+                               MaxHeight="136"
+                               Stretch="Fill"
                                Source="{Binding DisplayedImage}"/>
 
                             <TextBlock Grid.Row="1" 

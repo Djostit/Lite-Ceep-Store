@@ -73,6 +73,11 @@
                        FontFamily="\Fonts\#Jost"
                        FontSize="16"/>
             <Image Grid.Row="4"
+                   Width="292"
+                   Height="136"
+                   
+                   Stretch="Fill"
+                   
                    Source="{Binding sourceImage}"/>
             <TextBlock Grid.Row="5"
                        Foreground="#808080"
